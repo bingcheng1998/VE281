@@ -3,7 +3,7 @@
 #include <sstream>
 #include <assert.h>
 #include <fstream>
-#include <direct.h>
+// #include <direct.h>
 #include <math.h>
 using namespace std;
 int main(int argc, char *argv[]) {

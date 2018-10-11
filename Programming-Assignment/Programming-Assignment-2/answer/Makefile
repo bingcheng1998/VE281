@@ -55,4 +55,4 @@ tar:
 	tar czvf p1.tar main.cpp sort.cpp sort.h
 
 clean:
-	rm -f ./main *.o *.data test
+	rm -f ./main *.o *.data test generate autogen perform

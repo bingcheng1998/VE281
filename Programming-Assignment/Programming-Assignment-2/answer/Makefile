@@ -33,8 +33,8 @@ gen:
 p: perf
 	./perform 
 
-perf: performance.o sort.o
-	g++ -std=c++11 -O3 -g -Wall -o perform performance.o sort.o
+perf: performance.o selection.o
+	g++ -std=c++11 -O3 -g -Wall -o perform performance.o selection.o
 
 performance.o: performance.cpp
 	g++ -std=c++11 -O3 -g -Wall -c performance.cpp

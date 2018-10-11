@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Generator: DataGraph - https://www.visualdatatools.com/DataGraph/index.html  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="563" height="402" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g>
+  <!-- Background -->
+  <g id="Background">
+    <defs>
+      <clipPath id="clipPath">
+        <rect x="74.5" y="18.5" width="473" height="339"/>
+      </clipPath>
+    </defs>
+    <!-- Grid -->
+    <g id="Grid" clip-path="url(#clipPath)">
+      <path d="M 74.5 317.437 L 547.5 317.437 M 74.5 243.183 L 547.5 243.183 M 74.5 187.012 L 547.5 187.012 
+               M 74.5 130.842 L 547.5 130.842 M 74.5 56.5879 L 547.5 56.5879 "
+        stroke="black" stroke-dasharray="0.00997506,3.99002" stroke-linecap="round" fill="none" stroke-width="0.5"/>
+    </g>
+  </g>
+  <!-- Commands -->
+  <g id="Commands">
+    <!-- R selection vs size -->
+    <g id="R_selection_vs_size">
+      <defs>
+        <clipPath id="clipPath2">
+          <rect x="74.5" y="18.5" width="473" height="339"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath2)">
+        <path d="M 131.292 228.408 L 139.209 284.579 L 146.437 261.266 L 153.086 284.579 L 159.241 261.266 
+                 L 164.972 261.266 L 164.972 243.183 L 170.333 243.183 L 175.369 228.408 L 180.117 261.266 
+                 L 184.608 228.408 L 184.608 261.266 L 188.869 243.183 L 192.921 243.183 L 196.785 261.266 
+                 L 200.478 261.266 L 207.404 243.183 L 210.662 172.238 L 213.797 243.183 L 216.818 261.266 
+                 L 225.272 261.266 L 230.465 284.579 L 232.945 317.437 L 242.184 172.238 L 244.342 243.183 
+                 L 248.496 243.183 L 252.452 261.266 L 268.238 261.266 L 271.373 228.408 L 275.864 243.183 
+                 L 280.125 261.266 L 284.177 243.183 L 288.042 261.266 L 291.734 243.183 L 295.269 228.408 
+                 L 298.66 215.916 L 302.976 187.012 L 307.079 228.408 L 310.988 243.183 L 314.722 261.266 
+                 L 318.296 243.183 L 322.556 261.266 L 325.814 243.183 L 329.715 243.183 L 333.44 215.916 
+                 L 337.701 215.916 L 341.092 243.183 L 344.986 215.916 L 349.31 179.289 L 352.845 261.266 
+                 L 356.788 243.183 L 360.552 215.916 L 364.153 228.408 L 368.086 187.012 L 371.841 215.916 
+                 L 375.872 205.095 L 379.716 205.095 L 383.39 215.916 L 387.291 165.751 L 391.38 172.238 
+                 L 394.93 243.183 L 398.999 215.916 L 402.879 215.916 L 406.585 205.095 L 410.421 215.916 
+                 L 414.089 215.916 L 418.128 159.746 L 421.981 205.095 L 425.662 205.095 L 429.646 172.238 
+                 L 433.448 187.012 L 437.292 187.012 L 440.966 215.916 L 444.867 195.551 L 448.774 228.408 
+                 L 452.506 195.551 L 456.41 195.551 L 460.138 205.095 L 464.01 195.551 L 467.853 172.238 
+                 L 471.665 228.408 L 475.441 195.551 L 479.305 179.289 L 483.118 195.551 L 486.993 179.289 
+                 L 490.805 179.289 L 494.659 187.012 L 498.443 215.916 L 502.252 179.289 L 506.169 134.998 
+                 L 509.908 187.012 "
+          stroke="rgb(228,28,28)" fill="none" stroke-width="0.5"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clipPath3">
+        <rect x="74.5" y="18.5" width="473" height="339"/>
+      </clipPath>
+    </defs>
+    <!-- Fit of R selection vs size -->
+    <g id="Fit_of_R_selection_vs_size" clip-path="url(#clipPath3)">
+      <path d="M 131.292 269.651 L 509.908 184.136 "
+        stroke="rgb(255,0,0)" fill="none" stroke-width="0.5"/>
+    </g>
+    <!-- Legend -->
+    <g id="Legend">
+      <rect x="77.5" y="31" width="200" height="61.2" stroke="black" fill="none" stroke-width="0.5"/>
+      <defs>
+        <clipPath id="clipPath4">
+          <rect x="77.5" y="31" width="200" height="61.2"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath4)">
+        <path d="M 82.5 39.5 L 96.5 39.5 "
+          stroke="rgb(228,28,28)" fill="none" stroke-width="0.5"/>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="101.5" y="44.3037">R selection vs size</text>
+        </g>
+        <defs>
+          <clipPath id="clipPath5">
+            <rect x="82.5" y="48.28" width="14" height="12.24"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#clipPath5)">
+          <path d="M 82.5 54.5 L 96.5 54.5 "
+            stroke="rgb(255,0,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="101.5" y="58.7037">Fit of R selection vs size</text>
+        </g>
+        <path d="M 82.5 68.5 L 96.5 68.5 "
+          stroke="rgb(55,126,184)" fill="none" stroke-width="0.5"/>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="101.5" y="73.1037">D selection vs size</text>
+        </g>
+        <defs>
+          <clipPath id="clipPath6">
+            <rect x="82.5" y="77.08" width="14" height="12.24"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#clipPath6)">
+          <path d="M 82.5 83.5 L 96.5 83.5 "
+            stroke="rgb(55,126,184)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="101.5" y="87.5037">Fit of D selection vs size</text>
+        </g>
+      </g>
+    </g>
+    <!-- D selection vs size -->
+    <g id="D_selection_vs_size">
+      <defs>
+        <clipPath id="clipPath7">
+          <rect x="74.5" y="18.5" width="473" height="339"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath7)">
+        <path d="M 131.292 215.916 L 139.209 261.266 L 146.437 317.437 L 146.437 284.579 L 153.086 284.579 
+                 L 153.086 261.266 L 159.241 261.266 L 164.972 243.183 L 170.333 243.183 L 175.369 215.916 
+                 L 180.117 205.095 L 184.608 205.095 L 184.608 165.751 L 188.869 261.266 L 192.921 261.266 
+                 L 196.785 243.183 L 200.478 261.266 L 207.404 243.183 L 210.662 187.012 L 213.797 228.408 
+                 L 216.818 261.266 L 222.548 261.266 L 225.272 243.183 L 230.465 228.408 L 232.945 243.183 
+                 L 237.693 215.916 L 242.184 205.095 L 244.342 243.183 L 248.496 215.916 L 252.452 228.408 
+                 L 256.228 215.916 L 259.84 243.183 L 264.98 139.38 L 268.238 215.916 L 271.373 215.916 
+                 L 275.864 228.408 L 280.125 243.183 L 284.177 228.408 L 288.042 215.916 L 291.734 228.408 
+                 L 295.269 215.916 L 298.66 215.916 L 302.976 205.095 L 307.079 179.289 L 310.988 215.916 
+                 L 314.722 205.095 L 318.296 215.916 L 322.556 172.238 L 325.814 215.916 L 329.715 228.408 
+                 L 333.44 205.095 L 337.701 195.551 L 341.092 205.095 L 344.986 195.551 L 349.31 205.095 
+                 L 356.788 205.095 L 360.552 179.289 L 364.153 187.012 L 368.086 215.916 L 371.841 103.575 
+                 L 375.872 165.751 L 379.716 195.551 L 383.39 187.012 L 387.291 179.289 L 391.38 179.289 
+                 L 394.93 187.012 L 398.999 179.289 L 402.879 144.012 L 406.585 165.751 L 410.421 179.289 
+                 L 414.089 172.238 L 418.128 165.751 L 421.981 172.238 L 425.662 159.746 L 429.646 159.746 
+                 L 433.448 144.012 L 437.292 148.925 L 440.966 123.118 L 444.867 159.746 L 448.774 126.888 
+                 L 452.506 144.012 L 456.41 59.896 L 460.138 126.888 L 464.01 144.012 L 467.853 139.38 
+                 L 471.665 130.842 L 475.441 134.998 L 479.305 97.9838 L 483.118 126.888 L 486.993 74.6708 
+                 L 490.805 50.3511 L 494.659 123.118 L 498.443 112.759 L 502.252 109.58 L 506.169 85.4919 
+                 L 509.908 106.522 "
+          stroke="rgb(55,126,184)" fill="none" stroke-width="0.5"/>
+      </g>
+    </g>
+    <defs>
+      <clipPath id="clipPath8">
+        <rect x="74.5" y="18.5" width="473" height="339"/>
+      </clipPath>
+    </defs>
+    <!-- Fit of D selection vs size -->
+    <g id="Fit_of_D_selection_vs_size" clip-path="url(#clipPath8)">
+      <path d="M 131.292 271.939 L 509.908 115.184 "
+        stroke="rgb(55,126,184)" fill="none" stroke-width="0.5"/>
+    </g>
+  </g>
+  <!-- Foreground -->
+  <g id="Foreground">
+    <!-- Y Axis -->
+    <g id="Y_Axis">
+      <g transform="translate(14.0188,188) rotate(-90) translate(-14.0188,-188)" font-family="Helvetica" font-size="12" fill="black">
+        <text x="-9.98711" y="188">time cost</text>
+      </g>
+      <!-- Y Labels -->
+      <g id="Y_Labels">
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="26.8095" y="321.741">2×10</text>
+          <text x="53.8388" y="316.407" font-size="9">−6</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="26.8095" y="247.487">5×10</text>
+          <text x="53.8388" y="242.153" font-size="9">−6</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="40.4911" y="191.316">10</text>
+          <text x="53.8388" y="185.982" font-size="9">−5</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="26.8095" y="135.145">2×10</text>
+          <text x="53.8388" y="129.811" font-size="9">−5</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="26.8095" y="60.8916">5×10</text>
+          <text x="53.8388" y="55.5575" font-size="9">−5</text>
+        </g>
+      </g>
+      <path d="M 66.5 317.437 L 74.5 317.437 M 70.5 284.579 L 74.5 284.579 M 70.5 261.266 L 74.5 261.266 
+               M 66.5 243.183 L 74.5 243.183 M 70.5 228.408 L 74.5 228.408 M 70.5 215.916 L 74.5 215.916 
+               M 70.5 205.095 L 74.5 205.095 M 70.5 195.551 L 74.5 195.551 M 66.5 187.012 L 74.5 187.012 
+               M 66.5 130.842 L 74.5 130.842 M 70.5 97.9838 L 74.5 97.9838 M 70.5 74.6708 L 74.5 74.6708 
+               M 66.5 56.5879 L 74.5 56.5879 M 70.5 41.813 L 74.5 41.813 M 70.5 29.321 L 74.5 29.321 
+               M 70.5 18.5 L 74.5 18.5 "
+        stroke="black" fill="none" stroke-width="0.5"/>
+    </g>
+    <!-- X Axis -->
+    <g id="X_Axis">
+      <g font-family="Helvetica" font-size="12" fill="black">
+        <text x="270.646" y="395">size of integers</text>
+      </g>
+      <g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="124.619" y="376.69">10</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="312.546" y="376.69">100</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="500.472" y="376.69">1000</text>
+        </g>
+      </g>
+      <path d="M 131.292 365.5 L 131.292 357.5 M 322.556 365.5 L 322.556 357.5 M 513.82 365.5 L 513.82 357.5 
+               M 88.8608 361.5 L 88.8608 357.5 M 101.665 361.5 L 101.665 357.5 M 112.757 361.5 L 112.757 357.5 
+               M 122.541 361.5 L 122.541 357.5 M 188.869 361.5 L 188.869 357.5 M 222.548 361.5 L 222.548 357.5 
+               M 246.445 361.5 L 246.445 357.5 M 264.98 361.5 L 264.98 357.5 M 280.125 361.5 L 280.125 357.5 
+               M 292.929 361.5 L 292.929 357.5 M 304.021 361.5 L 304.021 357.5 M 313.805 361.5 L 313.805 357.5 
+               M 380.132 361.5 L 380.132 357.5 M 413.812 361.5 L 413.812 357.5 M 437.709 361.5 L 437.709 357.5 
+               M 456.244 361.5 L 456.244 357.5 M 471.388 361.5 L 471.388 357.5 M 484.193 361.5 L 484.193 357.5 
+               M 495.285 361.5 L 495.285 357.5 M 505.068 361.5 L 505.068 357.5 "
+        stroke="black" fill="none" stroke-width="0.5"/>
+    </g>
+    <g font-family="Helvetica" font-size="12" fill="black">
+      <text x="239.311" y="14.0188">time vs size in small period</text>
+    </g>
+    <path d="M 547.5 357.5 L 547.5 18.5 L 74.5 18.5 L 74.5 357.5 L 547.5 357.5 z "
+      stroke="black" stroke-linecap="square" fill="none" stroke-width="0.5"/>
+  </g>
+</g>
+</svg>

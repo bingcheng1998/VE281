@@ -1,13 +1,50 @@
 #include <iostream>
+#include <cstdlib>
+#include <cassert>
+#include <ctime>
 #include "selection.h"
 
 using namespace std;
 
-static int random_pivot(int* arr, int n){
+static void int_append(int *arrA, const int *arrB, const int s){
+	// MODIFIES: *arrA
+    // EFFECTS: append first "s" int in arrB tp the biginning if arrA.
+	assert(s >= 0);
+	if(s == 0) return;
+	for (int i = 0; i < s; ++i)
+	{
+		arrA[i] = arrB[i];
+	}
+}
+
+// static int partition_array(int *arr, int left, int right){
+// 	// MODIFIES: *arr
+// 	// EFFECTS: choose a pivotat then Move pivot to its correct place in the array.
+
+// }
+
+static int random_pivot(int* arr, const int n){
 // Choose pivot p from arr uniformly at random;
 // Partition arr using pivot p;
 // Let j be the index of p, return j;
-
+	const int size = n;
+	int BL = 0, BR = size-1;
+	int * B = new int[size];
+	int * A = arr;
+	srand((unsigned)time(NULL));
+	const int pivotat = rand()%size;
+	const int t = A[pivotat];
+	for (int i = 0; i < size; ++i)
+	{
+		if(i == pivotat) continue;
+		if(A[i] > t) B[BR--] = A[i];
+		else B[BL++] = A[i];
+	}
+	assert(BL == BR);
+	B[BL] = t;
+	int_append(A, B, size);
+	delete[] B;
+	return BL;
 }
 
 static void insertion_sort(int *arr, const int n){
@@ -29,11 +66,18 @@ static void insertion_sort(int *arr, const int n){
 }
 
 static int Deterministic_pivot_helper(int* arr, int n){
+	// cerr<<"Deterministic_pivot_helper: ";
+	// for (int i = 0; i < n; ++i)
+	// {
+	// 	cerr<<arr[i]<<", ";
+	// }
+
 	if(n == 1) return arr[0]; 
 	int full_bucket = n/5;
-	int arr_medians_size = full_bucket+1;
+	int arr_medians_size = full_bucket+(n%5+4)/5;
 	int* arr_medians = new int [arr_medians_size];
-	int incomplete_bucket = n - full_bucket;
+	int incomplete_bucket = arr_medians_size - full_bucket;
+	// cerr<<", incomplete_bucket: "<<incomplete_bucket<<endl;
 	for (int i = 0; i < full_bucket; ++i)
 	{
 		int* arr_break_5 = arr + i*5;
@@ -51,17 +95,6 @@ static int Deterministic_pivot_helper(int* arr, int n){
 	return pivot;
 }
 
-static void int_append(int *arrA, const int *arrB, const int s){
-	// MODIFIES: *arrA
-    // EFFECTS: append first "s" int in arrB tp the biginning if arrA.
-	assert(s >= 0);
-	if(s == 0) return;
-	for (int i = 0; i < s; ++i)
-	{
-		arrA[i] = arrB[i];
-	}
-}
-
 static int partition_array(int *arr, const int n, const int pivot){
 	// MODIFIES: *arr
 	// EFFECTS: choose a pivotat then Move pivot to its correct place in the array.
@@ -70,14 +103,22 @@ static int partition_array(int *arr, const int n, const int pivot){
 	int * B = new int[size];
 	int * A = arr;
 	const int t = pivot;
+	// cerr<<"partition_array: ";
 	for (int i = 0; i < size; ++i)
 	{
-		if(i == pivotat) continue;
+		// cerr<<arr[i]<<", ";
+		if(A[i] == t) continue;
 		if(A[i] > t) B[BR--] = A[i];
 		else B[BL++] = A[i];
 	}
-	assert(BL == BR);
-	B[BL] = t;
+	// cerr<<endl;
+	// cerr<<"pivot = "<<pivot<<", size = "<<size<<", BL = "<<BL<<", BR = "<<BR<<endl;
+	assert(BL <= BR);
+	
+	for (int i = BL; i <= BR; ++i)
+	{
+		B[i] = t;
+	}
 	int_append(A, B, size);
 	delete[] B;
 	return BL;
@@ -92,15 +133,23 @@ static int Deterministic_pivot(int* arr, int n){
 	return j;
 }
 
-static int Rselect(int* arr, int n, int order){
-
+int random_selection(int* arr, const int n, const int order){
+	if(n == 1) return arr[0];
+	int j = random_pivot(arr, n);
+	if(j == order) return arr[order];
+	if(j > order) {
+		int* arr_left = arr;
+		int length = j;
+		return random_selection(arr_left, length, order);
+	}
+	else{
+		int* arr_right = arr + j + 1;
+		int length = n - j - 1;
+		return random_selection(arr_right, length, order-j-1);
+	}
 }
 
-int random_selection(int* arr, int n, int order){
-
-}
-
-int deterministric_selection(int* arr, int n, int order){
+int deterministric_selection(int* arr, const int n, const int order){
 	if(n == 1) return arr[0];
 	int j = Deterministic_pivot(arr, n);
 	if(j == order) return arr[order];

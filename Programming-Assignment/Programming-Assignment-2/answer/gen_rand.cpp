@@ -10,11 +10,12 @@ int main(int argc, char *argv[]) {
 	// 	cout << "argv ["<< i <<"] = "<<argv[i]<<endl;
 	// }
 
-	assert(argc == 3);
+	assert(argc == 4);
 
 	cout<<argv[1]<<endl;
 	int rand_num = atoi(argv[2]);
 	cout<<rand_num<<endl;
+	cout<<argv[3]<<endl;
 
 	for (int i = 0; i < rand_num; ++i)
 	{

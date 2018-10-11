@@ -17,16 +17,10 @@ static void int_append(int *arrA, const int *arrB, const int s){
 	}
 }
 
-// static int partition_array(int *arr, int left, int right){
-// 	// MODIFIES: *arr
-// 	// EFFECTS: choose a pivotat then Move pivot to its correct place in the array.
-
-// }
-
 static int random_pivot(int* arr, const int n){
-// Choose pivot p from arr uniformly at random;
-// Partition arr using pivot p;
-// Let j be the index of p, return j;
+	// Choose pivot p from arr uniformly at random;
+	// Partition arr using pivot p;
+	// Let j be the index of p, return j;
 	const int size = n;
 	int BL = 0, BR = size-1;
 	int * B = new int[size];
@@ -48,6 +42,8 @@ static int random_pivot(int* arr, const int n){
 }
 
 static void insertion_sort(int *arr, const int n){
+	// MODIFIES: *arr
+	// EFFECTS: sort integers arr[] in ascending order with insertion_sort.
 	for (int i = 1; i < n; ++i)
 	{
 		int t = arr[i];
@@ -66,18 +62,13 @@ static void insertion_sort(int *arr, const int n){
 }
 
 static int Deterministic_pivot_helper(int* arr, int n){
-	// cerr<<"Deterministic_pivot_helper: ";
-	// for (int i = 0; i < n; ++i)
-	// {
-	// 	cerr<<arr[i]<<", ";
-	// }
-
+	// MODIFIES: *arr
+	// EFFECTS: choose a pivotat then Move pivot to its correct place in the array.
 	if(n == 1) return arr[0]; 
 	int full_bucket = n/5;
 	int arr_medians_size = full_bucket+(n%5+4)/5;
 	int* arr_medians = new int [arr_medians_size];
 	int incomplete_bucket = arr_medians_size - full_bucket;
-	// cerr<<", incomplete_bucket: "<<incomplete_bucket<<endl;
 	for (int i = 0; i < full_bucket; ++i)
 	{
 		int* arr_break_5 = arr + i*5;
@@ -103,16 +94,12 @@ static int partition_array(int *arr, const int n, const int pivot){
 	int * B = new int[size];
 	int * A = arr;
 	const int t = pivot;
-	// cerr<<"partition_array: ";
 	for (int i = 0; i < size; ++i)
 	{
-		// cerr<<arr[i]<<", ";
 		if(A[i] == t) continue;
 		if(A[i] > t) B[BR--] = A[i];
 		else B[BL++] = A[i];
 	}
-	// cerr<<endl;
-	// cerr<<"pivot = "<<pivot<<", size = "<<size<<", BL = "<<BL<<", BR = "<<BR<<endl;
 	assert(BL <= BR);
 	
 	for (int i = BL; i <= BR; ++i)

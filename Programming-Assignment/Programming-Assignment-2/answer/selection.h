@@ -2,10 +2,13 @@
 #define SELECTION_H
 
 int random_selection(int* arr, const int n, const int order);
-// return <val>
+// Randomized selection algorithm
+// MODIFIES: *arr
+// EFFECTS: select i-th smallest element in the array
 
 int deterministric_selection(int* arr, const int n, const int order);
-
-// int Deterministic_pivot(int* arr, int n);
+// Deterministic selection algorithm
+// MODIFIES: *arr
+// EFFECTS: select i-th smallest element in the array
 
 #endif

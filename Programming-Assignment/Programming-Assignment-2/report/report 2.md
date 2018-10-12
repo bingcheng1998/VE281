@@ -14,7 +14,7 @@ There is no limitation of runtime for all algorithms, because all these two algo
 
 ### Loop several times
 
-With `#define LOOP_TIME 20 we can run it for 20 times so that the result can be more accurate. (Please check `performance.cpp`)
+With `#define LOOP_TIME 20` we can run it for 20 times so that the result can be more accurate. (Please check `performance.cpp`)
 
 ```c++
 long time_all = 0;
@@ -88,8 +88,6 @@ You can get the real ith smallest and the selection ith smallest along with the 
 
 From **Figure 1**, all these line looks similar, so it's meaning less. So we make *log* at both *x* and *y* axis. As **Figure 2** shows,  we can find that both Random Selection and Deterministic Selection Algorithm have the runtime $O(n)$, and they are parallel when the size of the numbers is larger than $10^4$.
 
-
-
 ![Figure 1](resources/[selection] time vs size in large period without log.svg)
 
 As Figure 2 shows below, Rselection is not stable because the line of it is not as straight as Dselection. Moreover, Rselection is faster than Dselection. 
@@ -103,6 +101,8 @@ So What happend when  the size of the numbers is smaller than $10^3$? it seems t
 From **Figure 4** we can see that when the data size is small, it's so hard to recognize the runtime because the datas are so unstable. There are so many data hopping all the time, though I used `Loop several times` in my code, it doesn't work because the performance of my computer is not stable.
 
 ![Figure 3](resources/[selection] time vs size in small period without log.svg)
+
+Because these two lines are so similar, which means that we can use any of them when the number of datas are small.
 
 ![Figure 4](resources/[selection] time vs size in small period.svg)
 

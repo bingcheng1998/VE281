@@ -88,15 +88,15 @@ You can get the real ith smallest and the selection ith smallest along with the 
 
 From **Figure 1**, all these line looks similar, so it's meaning less. So we make *log* at both *x* and *y* axis. As **Figure 2** shows,  we can find that both Random Selection and Deterministic Selection Algorithm have the runtime $O(n)$, and they are parallel when the size of the numbers is larger than $10^4$.
 
-So What happend when  the size of the numbers is smaller than $10^3$? it seems that these two lines are connected to each other. Let's see the `Small data analysis`.
+
 
 ![Figure 1](resources/[selection] time vs size in large period without log.svg)
 
-
+As Figure 2 shows below, Rselection is not stable because the line of it is not as straight as Dselection. Moreover, Rselection is faster than Dselection. 
 
 ![Figure 2](resources/[selection] time vs size in large period.svg)
 
-
+So What happend when  the size of the numbers is smaller than $10^3$? it seems that these two lines are connected to each other. Let's see the `Small data analys is`.
 
 ### Small data analysis
 

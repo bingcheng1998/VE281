@@ -18,9 +18,9 @@ static void int_append(int *arrA, const int *arrB, const int s){
 }
 
 static int random_pivot(int* arr, const int n){
-	// Choose pivot p from arr uniformly at random;
-	// Partition arr using pivot p;
-	// Let j be the index of p, return j;
+// Choose pivot p from arr uniformly at random;
+// Partition arr using pivot p;
+// Let j be the index of p, return j;
 	const int size = n;
 	int BL = 0, BR = size-1;
 	int * B = new int[size];
@@ -42,8 +42,8 @@ static int random_pivot(int* arr, const int n){
 }
 
 static void insertion_sort(int *arr, const int n){
-	// MODIFIES: *arr
-	// EFFECTS: sort integers arr[] in ascending order with insertion_sort.
+// MODIFIES: *arr
+// EFFECTS: sort integers arr[] in ascending order with insertion_sort.
 	for (int i = 1; i < n; ++i)
 	{
 		int t = arr[i];
@@ -62,8 +62,7 @@ static void insertion_sort(int *arr, const int n){
 }
 
 static int Deterministic_pivot_helper(int* arr, int n){
-	// MODIFIES: *arr
-	// EFFECTS: choose a pivotat then Move pivot to its correct place in the array.
+
 	if(n == 1) return arr[0]; 
 	int full_bucket = n/5;
 	int arr_medians_size = full_bucket+(n%5+4)/5;
@@ -96,10 +95,13 @@ static int partition_array(int *arr, const int n, const int pivot){
 	const int t = pivot;
 	for (int i = 0; i < size; ++i)
 	{
+		// cerr<<arr[i]<<", ";
 		if(A[i] == t) continue;
 		if(A[i] > t) B[BR--] = A[i];
 		else B[BL++] = A[i];
 	}
+	// cerr<<endl;
+	// cerr<<"pivot = "<<pivot<<", size = "<<size<<", BL = "<<BL<<", BR = "<<BR<<endl;
 	assert(BL <= BR);
 	
 	for (int i = BL; i <= BR; ++i)
@@ -120,35 +122,27 @@ static int Deterministic_pivot(int* arr, int n){
 	return j;
 }
 
-int random_selection(int* arr, const int n, const int order){
+int selection_fun(int* arr, const int n, const int order, int (*fn)(int*, const int)){
 	if(n == 1) return arr[0];
-	int j = random_pivot(arr, n);
+	int j = fn(arr, n);
 	if(j == order) return arr[order];
 	if(j > order) {
 		int* arr_left = arr;
 		int length = j;
-		return random_selection(arr_left, length, order);
+		return selection_fun(arr_left, length, order, fn);
 	}
 	else{
 		int* arr_right = arr + j + 1;
 		int length = n - j - 1;
-		return random_selection(arr_right, length, order-j-1);
+		return selection_fun(arr_right, length, order-j-1, fn);
 	}
 }
 
+int random_selection(int* arr, const int n, const int order){
+	return selection_fun(arr, n, order, random_pivot);
+}
+
 int deterministric_selection(int* arr, const int n, const int order){
-	if(n == 1) return arr[0];
-	int j = Deterministic_pivot(arr, n);
-	if(j == order) return arr[order];
-	if(j > order) {
-		int* arr_left = arr;
-		int length = j;
-		return deterministric_selection(arr_left, length, order);
-	}
-	else{
-		int* arr_right = arr + j + 1;
-		int length = n - j - 1;
-		return deterministric_selection(arr_right, length, order-j-1);
-	}
+	return selection_fun(arr, n, order, Deterministic_pivot);
 }
 

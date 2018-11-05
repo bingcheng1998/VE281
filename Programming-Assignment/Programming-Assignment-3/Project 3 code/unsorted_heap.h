@@ -49,6 +49,7 @@ private:
   COMP compare;
 private:
   // Add any additional member functions or data you require here.
+  TYPE is_empty = TYPE();
 };
 
 template<typename TYPE, typename COMP>
@@ -60,26 +61,42 @@ unsorted_heap<TYPE, COMP> :: unsorted_heap(COMP comp) {
 template<typename TYPE, typename COMP>
 void unsorted_heap<TYPE, COMP> :: enqueue(const TYPE &val) {
     // Fill in the body.
+    data.push_back(val);
 }
 
 template<typename TYPE, typename COMP>
 TYPE unsorted_heap<TYPE, COMP> :: dequeue_min() {
     // Fill in the body.
+    if (empty()) return is_empty;
+    std::vector<TYPE>::iterator min = std::min_element(data.begin(), data.end(), compare);
+    int dis = std::distance(data.begin(), min)
+    std::swap(data[dis], data.back());
+    min = data.back();
+    data.pop_back();
+    return min;
 }
 
 template<typename TYPE, typename COMP>
 const TYPE &unsorted_heap<TYPE, COMP> :: get_min() const {
     // Fill in the body.
+    if (empty()) return is_empty;
+    std::vector<TYPE>::iterator min = std::min_element(data.begin(), data.end(), compare);
+    int dis = std::distance(data.begin(), min)
+    std::swap(data[dis], data.back());
+    min = data.back();
+    return min;
 }
 
 template<typename TYPE, typename COMP>
 bool unsorted_heap<TYPE, COMP> :: empty() const {
     // Fill in the body.
+    return data.empty();
 }
 
 template<typename TYPE, typename COMP>
 unsigned unsorted_heap<TYPE, COMP> :: size() const { 
     // Fill in the body.
+    return data.size();
 }
 
 #endif //UNSORTED_HEAP_H

@@ -16,11 +16,11 @@ Course Syllabus
 
 # VE281 Data Structures and Algorithms Fall 2018 
 
-##Course Description: 
+## Course Description: 
 
 Introduction to algorithm analysis and big-Oh notation; Fundamental data structures including priority queues, hash tables, binary trees, binary search trees, balanced trees, and graphs; Searching and sorting algorithms; Basic graph algorithms; Introduction to dynamic programming. 
 
-##Instructor: 
+## Instructor: 
 
 Weikang Qian
  Email: qianwk@sjtu.edu.cn
@@ -37,11 +37,11 @@ Textbook (Recommended but not required):
 
 Stein, MIT Press, 2009. 
 
-##Class Webpage: 
+## Class Webpage: 
 
 Log into Canvas at https://umjicanvas.com. Announcements, lecture slides, assignments, and grades will be posted on the class webpage. 
 
-##Course Prerequisites: 
+## Course Prerequisites: 
 
 Ve280 Programming and Elementary Data Structures and Ve203 Discrete Mathematics. 
 
@@ -61,13 +61,13 @@ Final Exam: 25%
 
 Any questions about the grading of the projects or exams must be brought to the attention of your TAs or the instructor within one week after the item is returned. 
 
-##Exam 
+## Exam 
 
 The exams will be closed book ones. No electronic devices are allowed in the exams. 
 
 You are expected to take both exams at the scheduled times. If you miss an exam, and a medical or personal emergency is not involved, you will receive a zero for that exam. If you anticipate an exam in another course, you must notify the instructor at least one week before the exam date. 
 
-##Academic Integrity: 
+## Academic Integrity: 
 
 1. All students are expected to attend all of the lectures. You cannot do intern on the lecture days. 
 2. All programming assignments must be done by yourself independently. You may discuss the project in oral with other student. However, you may not read/copy others’ solution and you may not use test cases from others. In all cases in which we have reason to believe that cheating has occurred, we will report your case to the Honor Council for evaluation. 

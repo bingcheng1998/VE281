@@ -23,5 +23,13 @@ bi: test_heap_binary.cpp
 	g++ -std=c++11 -O3 -o binary_heap test_heap_binary.cpp
 	./binary_heap
 
+fib: test_heap_fib.cpp
+	g++ -std=c++11 -O3 -o fib_heap test_heap_fib.cpp
+	./fib_heap
+
+fibsw: test_heap_fib_sw.h.cpp
+	g++ -std=c++11 -O3 -o fib_heap_sw test_heap_fib_sw.cpp
+	./fib_heap_sw
+
 clean:
-	rm -f *.o
+	rm -f *.o fib_heap binary_heap unsorted_heap fib_heap_sw

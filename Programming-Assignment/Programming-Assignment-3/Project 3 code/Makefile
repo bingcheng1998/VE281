@@ -27,7 +27,7 @@ fib: test_heap_fib.cpp
 	g++ -std=c++11 -O3 -o fib_heap test_heap_fib.cpp
 	./fib_heap
 
-fibsw: test_heap_fib_sw.h.cpp
+fibsw: test_heap_fib_sw.cpp
 	g++ -std=c++11 -O3 -o fib_heap_sw test_heap_fib_sw.cpp
 	./fib_heap_sw
 

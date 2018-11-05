@@ -68,8 +68,8 @@ private:
   int n=0;
   TYPE empty_fib=TYPE();
 
-  // virtual void Consolidate();
-  // virtual void Fibonacci_Heap_Link(x, y);
+  void virtual void Consolidate();
+  virtual void Fibonacci_Heap_Link(typename std::list<node>::iterator x, typename std::list<node>::iterator y);
 };
 
 // Add the definitions of the member functions here. Please refer to
@@ -130,13 +130,13 @@ void fib_heap<TYPE,COMP>::enqueue(const TYPE&val)
     }
     else
     {
-        // typename std::list<node>::iterator it;
-        // it=root.insert(root.end(),n);
-        root.insert(root.end(),x);
+        typename std::list<node>::iterator it;
+        it=root.insert(root.end(),x);
         if(compare(x.key,(*min).key))
         {
-            // min=it;
-          min=root.begin();
+          // typename std::list<node>::iterator it;
+          // root.end();
+          min = it;
         }
     }
     n++;
@@ -261,9 +261,11 @@ TYPE fib_heap<TYPE,COMP>::dequeue_min()
 //                    }
 //                    std::cout<<std::endl;
 //=-------------------------------------------------------------
-                    (*it).child.push_back((*y));
-                    y=root.erase(y);
-                    (*it).degree++;
+                    // (*it).child.push_back((*y));
+                    // y=root.erase(y);
+                    // (*it).degree++;
+Fibonacci_Heap_Link(it, y);
+
                     A[d]=root.end();
 //=-------------------------------------------------------------
 //                    std::cout<<"item in A ";
@@ -356,10 +358,10 @@ TYPE fib_heap<TYPE,COMP>::dequeue_min()
 //   }
 // }
 
-// template<typename TYPE,typename COMP>
-// fib_heap<TYPE,COMP>::Consolidate(){
+template<typename TYPE,typename COMP>
+void fib_heap<TYPE,COMP>::Consolidate(){
 
-// }
+}
 
 
 
@@ -371,10 +373,13 @@ TYPE fib_heap<TYPE,COMP>::dequeue_min()
 //                        // do not need it in this project.
 // }
 
-// template<typename TYPE,typename COMP>
-// fib_heap<TYPE,COMP>::Fibonacci_Heap_Link(x, y){
-
-// }
+template<typename TYPE,typename COMP>
+void fib_heap<TYPE,COMP>::Fibonacci_Heap_Link(typename std::list<node>::iterator x, typename std::list<node>::iterator y){
+  (*x).child.push_back((*y));
+  y=root.erase(y);
+  (*x).degree++;
+  // A[d]=root.end();
+}
 
 
 // Fibonacci_Heap_Get_Min(H) { 

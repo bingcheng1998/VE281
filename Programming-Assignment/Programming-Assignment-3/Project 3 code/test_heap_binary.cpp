@@ -1,6 +1,6 @@
 #include <iostream>
 #include "priority_queue.h"
-#include "unsorted_heap.h"
+#include "binary_heap.h"
 #include <list>
 #include <algorithm>
 #include <ctime>
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 
     auto c = clock();
 
-    priority_queue<int, compare_t> *pql = new unsorted_heap<int, compare_t>;
+    priority_queue<int, compare_t> *pql = new binary_heap<int, compare_t>;
     for (i = 0; i < size; i++)
         pql->enqueue(a[i]);
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     // cout << clock() - c << endl;
     delete pql;
 
-    priority_queue<int> *pqs = new unsorted_heap<int>;
+    priority_queue<int> *pqs = new binary_heap<int>;
     for (i = 0; i < size; i++)
         pqs->enqueue(a[i]);
 

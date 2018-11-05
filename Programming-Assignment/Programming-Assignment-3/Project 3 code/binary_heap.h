@@ -49,37 +49,77 @@ private:
 
 private:
   // Add any additional member functions or data you require here.
+  virtual void percolateUp(int id);
+
+  virtual void percolateDown(int id);
 };
+
+template<typename TYPE,typename COMP>
+void binary_heap<TYPE,COMP>::percolateUp(int id)
+{
+    while(id>1&&compare(data[id],data[id/2]))
+    {
+        std::swap(data[id],data[id/2]);
+        id=id/2;
+    }
+}
+
+template<typename TYPE,typename COMP>
+void binary_heap<TYPE,COMP>::percolateDown(int id)
+{
+    int j;
+    int size = this->size()-1;
+    for(j=2*id; j<=size; j=2*id)
+    {
+        if(j<size && compare(data[j+1],data[j])) j++;
+        if(compare(data[id],data[j])) break;
+        std::swap(data[id],data[j]);
+        id=j;
+    }
+}
 
 template<typename TYPE, typename COMP>
 binary_heap<TYPE, COMP> :: binary_heap(COMP comp) {
     compare = comp;
     // Fill in the remaining lines if you need.
+    data.push_back(TYPE());
 }
 
 template<typename TYPE, typename COMP>
 void binary_heap<TYPE, COMP> :: enqueue(const TYPE &val) {
     // Fill in the body.
+    data.push_back(val);
+    percolateUp(size());
 }
 
 template<typename TYPE, typename COMP>
 TYPE binary_heap<TYPE, COMP> :: dequeue_min() {
     // Fill in the body.
+    if (this->empty()) return data[0];
+    std::swap(data[1],data.back());
+    percolateDown(1);
+    TYPE dequeue_min = data.back();
+    data.pop_back();
+    return dequeue_min;
 }
 
 template<typename TYPE, typename COMP>
 const TYPE &binary_heap<TYPE, COMP> :: get_min() const {
     // Fill in the body.
+    if (this->empty()) return data[0];
+    return data[1];
 }
 
 template<typename TYPE, typename COMP>
 bool binary_heap<TYPE, COMP> :: empty() const {
     // Fill in the body.
+    return this->size() == 0;
 }
 
 template<typename TYPE, typename COMP>
 unsigned binary_heap<TYPE, COMP> :: size() const { 
     // Fill in the body.
+    return data.size()-1;
 }
 
 #endif //BINARY_HEAP_H

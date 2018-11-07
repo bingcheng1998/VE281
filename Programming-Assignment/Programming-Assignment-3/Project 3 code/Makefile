@@ -31,5 +31,9 @@ fibsw: test_heap_fib_sw.cpp
 	g++ -std=c++11 -O3 -o fib_heap_sw test_heap_fib_sw.cpp
 	./fib_heap_sw
 
+perf: test_heap_performance.cpp
+	g++ -std=c++11 -O3 -o performance test_heap_performance.cpp
+	./performance
+
 clean:
 	rm -f *.o fib_heap binary_heap unsorted_heap fib_heap_sw

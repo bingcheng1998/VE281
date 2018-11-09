@@ -35,6 +35,7 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < size; i++) {
         int val = pql->dequeue_min();
         cout << val << " " << flush;
+        
     }
     cout << endl;
     // cout << clock() - c << endl;
@@ -50,8 +51,9 @@ int main(int argc, char *argv[]) {
         cout << val << " " << flush;
     }
     cout << endl;
-
-
     delete pqs;
+////=========
+
+////=========
     return 0;
 }

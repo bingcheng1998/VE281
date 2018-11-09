@@ -1,9 +1,3 @@
-//
-//  fib_heap.h
-//  VE281 2018 Autumn
-//  project3
-//  Bingcheng HU
-//
 #ifndef FIB_HEAP_H
 #define FIB_HEAP_H
 
@@ -54,27 +48,27 @@ private:
     COMP compare;
 
 private:
-    // Add any additional member functions or data you require here.
-    // You may want to define a strcut/class to represent nodes in the heap and a
-    // pointer to the min node in the heap.
+    unsigned int N_num;
+    unsigned int maxDegree;
     struct Node{
         TYPE key;
         unsigned int degree;
-        Node *child;
-        Node *parent;
         Node *left;
         Node *right;
-        Node(TYPE t_value=TYPE()):
-        key(t_value),parent(NULL),child(NULL),
-        left(this),right(this),degree(0){}
+        Node *child;
+        Node *parent;
+        Node(TYPE t_value=TYPE()):key(t_value),parent(NULL),child(NULL),
+                                  left(this),right(this),degree(0)
+        {}
     };
-    unsigned int Node_count;
     Node *min;
     std::vector<Node*> root;
-    TYPE empty_fib=TYPE();
-    virtual void Insert2left(Node *origin_node, Node *new_node);
-    virtual void Fibonacci_Heap_Link(Node *y,Node *x);
-    virtual void Consolidate();
+    void Insert_l(Node *a,Node *b);
+    void Fibonacci_Heap_Link(Node *y,Node *x);
+    void Consolidate();
+    // Add any additional member functions or data you require here.
+    // You may want to define a strcut/class to represent nodes in the heap and a
+    // pointer to the min node in the heap.
 
 };
 
@@ -82,19 +76,18 @@ private:
 // binary_heap.h for the syntax.
 
 template<typename TYPE, typename COMP>
-void fib_heap<TYPE, COMP> ::Insert2left(Node *origin_node, Node *new_node) {
-    if(origin_node!=NULL){
-        new_node->left->right=new_node->right;
-        new_node->right->left=new_node->left;
-        origin_node->right->left=new_node;
-        new_node->right=origin_node->right;
-        origin_node->right=new_node;
-        new_node->left=origin_node;
-        new_node->parent=origin_node->parent;
-        if(origin_node->parent!=NULL) origin_node->parent->degree+=1;
+void fib_heap<TYPE, COMP> ::Insert_l(Node *a, Node *b) {
+    if(a!=NULL){
+        b->left->right=b->right;
+        b->right->left=b->left;
+        a->right->left=b;
+        b->right=a->right;
+        a->right=b;
+        b->left=a;
+        b->parent=a->parent;
+        if(a->parent!=NULL) a->parent->degree+=1;
     }
 }
-
 
 template<typename TYPE, typename COMP>
 void fib_heap<TYPE, COMP> ::Fibonacci_Heap_Link(Node *y,Node *x){
@@ -102,38 +95,40 @@ void fib_heap<TYPE, COMP> ::Fibonacci_Heap_Link(Node *y,Node *x){
     for(int i=0;i<root.size();i++){
         if(root[i]==y) id=i;
     }
-    Node *N=root[id];
+    Node *tmp=root[id];
     root[id]=root[root.size()-1];
     root.pop_back();
     if(x->child==NULL){
+        x->child=tmp;
+        tmp->parent=x;
+        tmp->left->right=tmp->right;
+        tmp->right->left=tmp->left;
+        tmp->left=tmp;
+        tmp->right=tmp;
         x->degree+=1;
-        x->child=N;
-        N->parent=x;
-        N->left->right=N->right;
-        N->right->left=N->left;
-        N->left=N;
-        N->right=N;
     }
-    else Insert2left(x->child,y);
+    else{
+        Insert_l(x->child,y);
+    }
 }
 
 template<typename TYPE, typename COMP>
 void fib_heap<TYPE, COMP> ::Consolidate() {
-    int root_size = Node_count;
-    std::vector<Node*> A(root_size,NULL);
-    for(int i=0; i<root.size(); ++i){
+    int size_of_root=N_num;
+    std::vector<Node*> A(size_of_root,NULL);
+    for(int i=0;i<root.size();i++){
         Node *x=root[i];
         unsigned int d=x->degree;
         while(A[d]!=NULL){
             Node *y=A[d];
-            if(compare(y->key,x->key)){
-                Node *N=x;
+            if(compare(x->key,y->key)){
+                Node *tmp=x;
                 x=y;
-                y=N;
+                y=tmp;
             }
             Fibonacci_Heap_Link(y,x);
             A[d]=NULL;
-            d++;
+            d+=1;
         }
         A[d]=x;
     }
@@ -141,89 +136,82 @@ void fib_heap<TYPE, COMP> ::Consolidate() {
     for(int j=0;j<root.size();j++){
         Node *t=root[j];
         if(this->min==NULL) this->min=root[j];
-        else if(compare( t->key,this->min->key)) 
-            this->min=root[j];
+        else{
+            if(compare(this->min->key,t->key)) this->min=root[j];
+        }
     }
 }
 
 template<typename TYPE, typename COMP>
 fib_heap<TYPE, COMP> ::fib_heap(COMP comp) {
-    this->Node_count=0;
     compare = comp;
     this->min=NULL;
+    this->N_num=0;
 }
 
 template<typename TYPE, typename COMP>
 void fib_heap<TYPE, COMP> :: enqueue(const TYPE &val) {
-    Node *N=new Node(val);
-    N->degree=0;
-    N->child=NULL;
-    N->parent=NULL;
+    Node *tmp=new Node(val);
+    tmp->degree=0;
+    tmp->child=NULL;
+    tmp->parent=NULL;
     if(this->min==NULL){
-        root.push_back(N);
-        this->min=N;
-        N->right=N;
-        N->left=N;
+        root.push_back(tmp);
+        this->min=tmp;
+        tmp->left=tmp;
+        tmp->right=tmp;
     }
     else{
-        root.push_back(N);
-        Insert2left(min,N);
-        if(compare(N->key,this->min->key)) this->min=N;
+        root.push_back(tmp);
+        Insert_l(min,tmp);
+        if(compare(this->min->key,tmp->key)) this->min=tmp;
     }
-    this->Node_count+=1;
+    this->N_num+=1;
 };
-
 
 template<typename TYPE, typename COMP>
 TYPE fib_heap<TYPE, COMP> :: dequeue_min(){
-    TYPE key_out = min->key;
-    Node *mid_node=this->min;
-    if(mid_node!=NULL){
-        if(mid_node->child!=NULL){
-            Node *new_mid=mid_node->child;
+    Node *z=this->min;
+    if(z!=NULL){
+        if(z->child!=NULL){
+            Node *x=z->child;
             do{
-                root.push_back(new_mid);
-                new_mid->parent=NULL;
-                new_mid=new_mid->right;
-            }while(new_mid!=mid_node->child);
-            new_mid->left->right=mid_node->right;
-            mid_node->right->left=new_mid->left;
-            new_mid->left=mid_node->left;
-            mid_node->left->right=new_mid;
+                root.push_back(x);
+                x->parent=NULL;
+                x=x->right;
+            }while(x!=z->child);
+            x->left->right=z->right;
+            z->right->left=x->left;
+            x->left=z->left;
+            z->left->right=x;
         }
-        // delete mid_node;
         unsigned int id;
         for(int i=0;i<root.size();i++){
-            if(root[i]==mid_node) id=i;
+            if(root[i]==z) id=i;
         }
-
-
-        root.erase(root.begin()+id);
-        // delete mid_node;
-        this->Node_count-=1;
-        if(this->Node_count==0)this->min=NULL;
+        root[id]=root[root.size()-1];
+        root.pop_back();
+        this->N_num-=1;
+        if(this->N_num==0)this->min=NULL;
         else Consolidate();
     }
-    return key_out;
+    return z->key;
 };
 
 template<typename TYPE, typename COMP>
 const TYPE &fib_heap<TYPE, COMP> :: get_min() const{
-    if(this->empty())
-    {
-        return empty_fib;
-    }
-    return min->key;
+    return this->min->key;
 };
 
 template<typename TYPE, typename COMP>
 unsigned fib_heap<TYPE, COMP> :: size() const {
-    return Node_count;
+    return this->N_num;
+    // Fill in the body.
 }
 
 template<typename TYPE, typename COMP>
 bool fib_heap<TYPE, COMP> :: empty() const {
-    return this->size()==0;
+    return this->min==NULL;
+    // Fill in the body.
 }
-
 #endif //FIB_HEAP_H

@@ -1,3 +1,9 @@
+//
+//  binary_heap.h
+//  VE281 2018 Autumn
+//  project3
+//  Bingcheng HU
+//
 #ifndef BINARY_HEAP_H
 #define BINARY_HEAP_H
 
@@ -49,32 +55,32 @@ private:
 
 private:
   // Add any additional member functions or data you require here.
-  virtual void percolateUp(int id);
+  virtual void percolateUp(int node_num);
 
-  virtual void percolateDown(int id);
+  virtual void percolateDown(int node_num);
 };
 
 template<typename TYPE,typename COMP>
-void binary_heap<TYPE,COMP>::percolateUp(int id)
+void binary_heap<TYPE,COMP>::percolateUp(int node_num)
 {
-    while(id>1&&compare(data[id],data[id/2]))
+    while(node_num>1&&compare(data[node_num],data[node_num/2]))
     {
-        std::swap(data[id],data[id/2]);
-        id=id/2;
+        std::swap(data[node_num],data[node_num/2]);
+        node_num=node_num/2;
     }
 }
 
 template<typename TYPE,typename COMP>
-void binary_heap<TYPE,COMP>::percolateDown(int id)
+void binary_heap<TYPE,COMP>::percolateDown(int node_num)
 {
     int j;
     int size = this->size()-1;
-    for(j=2*id; j<=size; j=2*id)
+    for(j=2*node_num; j<=size; j=2*node_num)
     {
         if(j<size && compare(data[j+1],data[j])) j++;
-        if(compare(data[id],data[j])) break;
-        std::swap(data[id],data[j]);
-        id=j;
+        if(compare(data[node_num],data[j])) break;
+        std::swap(data[node_num],data[j]);
+        node_num=j;
     }
 }
 

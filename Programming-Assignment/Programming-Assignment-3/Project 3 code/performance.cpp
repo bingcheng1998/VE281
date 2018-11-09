@@ -1,150 +1,252 @@
+//
+//  main.cpp
+//  VE281 2018 Autumn
+//  project3
+//  Bingcheng HU
+//
 #include <iostream>
-#include <iomanip>
-#include <sstream>
-#include <cstdlib>
-#include <assert.h>
-#include <ctime>
-#include <fstream>
-#include "selection.h"
+#include <getopt.h>
+#include <tgmath.h>
+#include "priority_queue.h"
+#include "binary_heap.h"
+#include "fib_heap.h"
+#include "unsorted_heap.h"
 
 using namespace std;
+static int verbose;
 
-#define HEAP_WAY_SIZE 3
-#define file_num 100
-#define LOOP_TIME 40
-// #define SORT_DEBUG
-
-void debug_print(char TAG, string deb_string){
-	if(TAG == 'v') cerr<< deb_string;
-}
-
-void   Delay(int   time){ 
-	clock_t   now   =   clock(); 
-	while(   clock()   -   now   <   time   ); 
-} 
-
-const string selectionName[] = {
-	"unsorted_heap","binary_heap","fib_heap", "ERROR_HEAP"
-};
-
-bool safe_open_file(ifstream& i_file, string file_name){
-	ostringstream debug_stream;
-	i_file.open(file_name.c_str());
-	if (i_file.fail()) {
-		cout<<"Error: Cannot open file "<< file_name<<"!"<<endl; 
-		exit(0);
-	}
-	debug_stream<<"file opened success!"<<endl;
-	debug_print('v', debug_stream.str());
-	debug_stream.clear();
-	return true;
-}
-
-static int int_size[] = {
-	// 10, 10, 10, 11, 12, 12, 13, 13, 14, 15, 15, 16, 17, 18, 19, 19, 20, 21, 22, 23, 25, 26, 27, 28, 30, 31, 33, 34, 36, 38, 39, 41, 43, 45, 47, 50, 52, 54, 57, 60, 63, 66, 69, 72, 75, 79, 83, 87, 91, 95, 100, 104, 109, 114, 120, 125, 131, 138, 144, 151, 158, 165, 173, 181, 190, 199, 208, 218, 229, 239, 251, 263, 275, 288, 301, 316, 331, 346, 363, 380, 398, 416, 436, 457, 478, 501, 524, 549, 575, 602, 630, 660, 691, 724, 758, 794, 831, 870, 912, 954 };
-
-// 100, 112, 125, 141, 158, 177, 199, 223, 251, 281, 316, 354, 398, 446, 501, 562, 630, 707, 794, 891, 1000, 1122, 1258, 1412, 1584, 1778, 1995, 2238, 2511, 2818, 3162, 3548, 3981, 4466, 5011, 5623, 6309, 7079, 7943, 8912, 10000, 11220, 12589, 14125, 15848, 17782, 19952, 22387, 25118, 28183, 31622, 35481, 39810, 44668, 50118, 56234, 63095, 70794, 79432, 89125, 100000, 112201, 125892, 141253, 158489, 177827, 199526, 223872, 251188, 281838, 316227, 354813, 398107, 446683, 501187, 562341, 630957, 707945, 794328, 891250, 1000000, 1122018, 1258925, 1412537, 1584893, 1778279, 1995262, 2238721, 2511886, 2818382, 3162277, 3548133, 3981071, 4466835, 5011872, 5623413, 6309573, 7079457, 7943282, 8912509};
-1000, 1047, 1096, 1148, 1202, 1258, 1318, 1380, 1445, 1513, 1584, 1659, 1737, 1819, 1905, 1995, 2089, 2187, 2290, 2398, 2511, 2630, 2754, 2884, 3019, 3162, 3311, 3467, 3630, 3801, 3981, 4168, 4365, 4570, 4786, 5011, 5248, 5495, 5754, 6025, 6309, 6606, 6918, 7244, 7585, 7943, 8317, 8709, 9120, 9549, 10000, 10471, 10964, 11481, 12022, 12589, 13182, 13803, 14454, 15135, 15848, 16595, 17378, 18197, 19054, 19952, 20892, 21877, 22908, 23988, 25118, 26302, 27542, 28840, 30199, 31622, 33113, 34673, 36307, 38018, 39810, 41686, 43651, 45708, 47863, 50118, 52480, 54954, 57543, 60255, 63095, 66069, 69183, 72443, 75857, 79432, 83176, 87096, 91201, 95499};
-bool jump_j[] = {false, false,false,false,false,false};
-
-struct compare_t {
-    bool operator()(int a, int b) const {
-        return a > b;
+class point {
+public:
+    int x;
+    int y;
+    int cellweight=0;
+    int cost=0;
+    bool reached=false;
+    point *predecessor=NULL;
+    friend bool operator==(const point &p1,const point &p2)
+    {
+        return (p1.x==p2.x&&p1.y==p2.y&&p1.cellweight==p2.cellweight&&p1.cost==p2.cost&&p1.reached==p2.reached&&p1.predecessor==p2.predecessor);
     }
+    friend ostream &operator<<(ostream &out, const point &p) {
+        out << "(" << p.x << ", " << p.y << ")";
+        return out;
+    }
+//     During a dequeueMin() operation, if multiple cells have the same smallest path
+// cost, choose the cell with the smallest x-coordinate. Furthermore, if there are multiple
+// cells with the same x-coordinate, choose the cell with the smallest y-coordinate.
+    struct compare_t
+    {
+        // bool operator()(const point &a, const point &b) const
+        // {
+        //     return (a.cost<b.cost)||((a.cost==b.cost)&&(a.x<b.x))||((a.cost==b.cost)&&(a.x==b.x)&&(a.y<b.y));
+
+        //     // if (a.cost != b.cost) return a.cost < b.cost;
+        //     // if (a.y != b.y) return a.y < b.y;
+        //     // return a.x < b.x;
+        // }
+        bool operator()(const point &a, const point &b) const {
+            if (a.cost != b.cost) return a.cost < b.cost;
+            if (a.x != b.x) return a.x < b.x;
+            return a.y < b.y;
+        }
+    };
 };
 
-int main(int argc, char *argv[]) {
-	int (*const fn[HEAP_WAY_SIZE])(int*, const int, const int) = {
-        unsorted_heap,
-        binary_heap,
-        fib_heap
-    };
-
-	clock_t start, end;
-	ofstream outFile;
-	outFile.open("data.csv", ios::out);
-	outFile << "size"<<","<<selectionName[0]<<","<<selectionName[1]<<","<<endl;
-	for (int j = 0; j < file_num; ++j)
-	{
-		ifstream iFile;
-		
-		
-		ostringstream path_stream;
-		path_stream<<"./data_file/"<<j<<".data";
-		safe_open_file(iFile, path_stream.str());
-		int lines;
-		iFile >> lines;
-		iFile >> lines;
-		int meanning_less;
-		iFile >> meanning_less;
-
-		
-		int *arr = new int[lines];
-		int baz;
-		for (int i = 0; i < lines; ++i)
-		 {
-		 	iFile >> baz;
-		 	arr[i] = baz;
-		 } 
-		outFile << int_size[j]<<",";
-		for (int i = 0; i < SELECTION_WAY_SIZE; ++i)
-		{
-			if(jump_j[i] == true){
-				outFile << ""<<",";
-				cerr<<"jump "<<selectionName[i]<<" with "<<int_size[j]<<" size!"<<endl;
-				continue;
-			}
-			if(int_size[j] < 1000){
-				cerr<<"delay at "<<int_size[j]<<" size"<<endl;
-			 	Delay(1000);
-			} else Delay(500);
-
-
-			// int arr_copy[lines];
-			// //use deep copy to make arr_copy evry turn
-			// memset(arr_copy,0, lines*sizeof(int));
-			// memcpy(arr_copy,arr, lines*sizeof(int));
-			// start = clock();
-			// fn[i](arr_copy, lines, 0);
-			// end = clock();
-
-			long time_all = 0;
- 
-            for (int io = 0; io < 100; ++io)
-            {
-            	int i_th_num = lines*(io/(100));
-            	int arr_copy[lines];
-                //use deep copy to make arr_copy evry turn
-                memset(arr_copy,0, lines*sizeof(int));
-                memcpy(arr_copy,arr, lines*sizeof(int));
-                start = clock();
-            	fn[i](arr_copy, lines, i_th_num);
-            	end = clock();
-            	time_all += (end - start);
-            }
-                
-
-
-
-			cout<<"Sort algorithm is ["<<selectionName[i]<<"],";
-			double time_run =  (double)time_all / CLOCKS_PER_SEC / LOOP_TIME;
-			cout << "Running time: " <<time_run<< endl;
-			if (time_run >= 24.0)
-			{
-				jump_j[i] = true;
-			}
-			outFile << time_run<<",";
-		}
-		outFile <<endl;
-
-
-		iFile.close();
-		delete[] arr;
-	}
-	outFile.close();
-	return 0;
+void trace_back_path(point *p){
+    if(p!=NULL){
+        trace_back_path(p->predecessor);
+        // cout<<*p<<endl;
+    }
+    return;
 }
 
+void clean_matrix(point **point_A,int y_length, int x_length){
+    for(int h=0;h<y_length;++h){
+        for(int w=0;w<x_length;++w){
+            point_A[h][w].x=w;
+            point_A[h][w].y=h;
+            point_A[h][w].cost=point_A[h][w].cellweight;
+            point_A[h][w].reached = false;
+        }
+    }
+}
+
+clock_t test_time(point **point_A, int y_length, int x_length, int mode){
+    int start_y = 0;
+    int start_x = 0;
+    int end_y = y_length-1;
+    int end_x = x_length-1;
+    clock_t start_t, end_t;
+    start_t = clock();
+    // cout<<"start at "<<start_t;
+    priority_queue<point,point::compare_t> *priority_q;
+    if(mode== 1) //"BINARY")
+    {
+        priority_q=new binary_heap<point,point::compare_t>();
+    }
+    else if(mode== 0) //"UNSORTED")
+    {
+        priority_q=new unsorted_heap<point,point::compare_t>();
+    }
+    else if(mode== 2) //"FIBONACCI")
+    {
+        priority_q=new fib_heap<point,point::compare_t>();
+    }
+    else
+    {
+        exit(0);
+    }
+    
+    int verbose = 0;
+    point_A[start_y][start_x].reached=true;
+    priority_q->enqueue(point_A[start_y][start_x]);
+    int step=0;
+    while(priority_q->empty()==false){
+        point C=priority_q->dequeue_min();
+        if(verbose==1){
+            cout<<"Step "<<step<<endl;
+            cout<<"Choose cell ("<<point_A[C.y][C.x].x<<", "<<point_A[C.y][C.x].y
+            <<") with accumulated length "<<point_A[C.y][C.x].cost<<"."<<endl;
+        }
+        step++;
+//      The visit of the neighbors starts form the right neighbor and then goes in the
+// clockwise direction, i.e., right, down, left, up. For those cells on the boundary, they
+// may not have a certain neighbor. Then you just skip it.
+        int clockwise_x[4]={1,0,-1,0};
+        int clockwise_y[4]={0,1,0,-1};
+        for(int i=0;i<4;++i){
+            int N_x=point_A[C.y][C.x].x+clockwise_x[i];
+            int N_y=point_A[C.y][C.x].y+clockwise_y[i];
+            if(N_x<0||N_x>x_length-1||
+                N_y<0||N_y>y_length-1||
+                point_A[N_y][N_x].reached==true) 
+                continue;
+            point_A[N_y][N_x].reached=true;
+            point_A[N_y][N_x].cost=point_A[C.y][C.x].cost+point_A[N_y][N_x].cellweight;
+            point_A[N_y][N_x].predecessor=&point_A[C.y][C.x];
+            if(point_A[end_y][end_x].x==point_A[N_y][N_x].x&&point_A[end_y][end_x].y==point_A[N_y][N_x].y){
+                
+                auto end_node = &point_A[end_y][end_x];
+                // cout<<"The shortest path from ("<<point_A[start_y][start_x].x<<", "
+                // <<point_A[start_y][start_x].y<<") to ("<<point_A[end_y][end_x].x
+                // <<", "<<point_A[end_y][end_x].y<<") is "<<point_A[N_y][N_x].cost<<"."<<endl;
+                // cout<<"Path:"<<endl;
+                cerr<<"cost = "<< point_A[N_y][N_x].cost<<" ";
+                trace_back_path(&point_A[end_y][end_x]);
+                delete priority_q;
+                end_t = clock();
+                return clock() - start_t;
+            }
+            else{
+                priority_q->enqueue(point_A[N_y][N_x]);
+            }
+        }
+    }
+    delete priority_q;
+
+    end_t = clock();
+    return 0;
+}
+const string heapName[] = {
+    "unsorted_heap","binary_heap","fibonaci_heap", "ERROR_HEAP"
+};
+
+int main(int argc,char* argv[])
+{
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
+//----------------- Get Operation-------------------
+//-------------------get file input-----------------
+    
+    int x_length = 0,y_length=0;
+    cin>>x_length>>y_length;
+    int start_x,start_y,end_x,end_y;
+    cin>>start_x>>start_y>>end_x>>end_y;
+    
+    // point point_A[y_length][x_length];
+    point** point_A;
+    point_A = new point *[x_length];
+    for (int i = 0; i < x_length; ++i)
+    {
+        point_A[i] = new point [y_length];
+    }
+    for(int h=0;h<y_length;++h){
+        for(int w=0;w<x_length;++w){
+            cin>>point_A[h][w].cellweight;
+        }
+    }
+    
+//-------------------calculate path------------------
+//     int verbose = 0;
+//     point_A[start_y][start_x].reached=true;
+//     priority_q->enqueue(point_A[start_y][start_x]);
+//     int step=0;
+//     while(priority_q->empty()==false){
+//         point C=priority_q->dequeue_min();
+//         if(verbose==1){
+//             cout<<"Step "<<step<<endl;
+//             cout<<"Choose cell ("<<point_A[C.y][C.x].x<<", "<<point_A[C.y][C.x].y
+//             <<") with accumulated length "<<point_A[C.y][C.x].cost<<"."<<endl;
+//         }
+//         step++;
+// //      The visit of the neighbors starts form the right neighbor and then goes in the
+// // clockwise direction, i.e., right, down, left, up. For those cells on the boundary, they
+// // may not have a certain neighbor. Then you just skip it.
+//         int clockwise_x[4]={1,0,-1,0};
+//         int clockwise_y[4]={0,1,0,-1};
+//         for(int i=0;i<4;++i){
+//             int N_x=point_A[C.y][C.x].x+clockwise_x[i];
+//             int N_y=point_A[C.y][C.x].y+clockwise_y[i];
+//             if(N_x<0||N_x>x_length-1||
+//                 N_y<0||N_y>y_length-1||
+//                 point_A[N_y][N_x].reached==true) 
+//                 continue;
+//             point_A[N_y][N_x].reached=true;
+//             point_A[N_y][N_x].cost=point_A[C.y][C.x].cost+point_A[N_y][N_x].cellweight;
+//             point_A[N_y][N_x].predecessor=&point_A[C.y][C.x];
+//             if(point_A[end_y][end_x].x==point_A[N_y][N_x].x&&point_A[end_y][end_x].y==point_A[N_y][N_x].y){
+                
+//                 auto end_node = &point_A[end_y][end_x];
+//                 cout<<"The shortest path from ("<<point_A[start_y][start_x].x<<", "
+//                 <<point_A[start_y][start_x].y<<") to ("<<point_A[end_y][end_x].x
+//                 <<", "<<point_A[end_y][end_x].y<<") is "<<point_A[N_y][N_x].cost<<"."<<endl;
+//                 cout<<"Path:"<<endl;
+//                 trace_back_path(&point_A[end_y][end_x]);
+//                 delete priority_q;
+//                 return 0;
+//             }
+//             else{
+//                 priority_q->enqueue(point_A[N_y][N_x]);
+//             }
+//         }
+//     }
+//     delete priority_q;
 
 
+    // clean_matrix(point_A, y_length, x_length);
+    // x_length = 100
+    // y_length = 100;
+    // test_time(point_A, y_length, x_length, 1);
 
+    for (int i = 0; i < 12; ++i)
+    {
+        int size_of_matrix = x_length*pow(2,i+1)/4096;
+        cout <<size_of_matrix<<", ";
+        for (int j = 0; j < 3; ++j)
+        {
+            
+            int x_len = size_of_matrix;
+            int y_len = size_of_matrix;
+            clock_t time_run = test_time(point_A, y_len, x_len, j);
+            clean_matrix(point_A, y_length, x_length);
+            cerr<<"run time of "<<heapName[j]<< "  \tat size "<< size_of_matrix <<"\tis "<<time_run<<endl;
+            cout<<time_run<<",";
+        }
+        cout<<endl;
+    }
+
+    for(int i=0;i<y_length;i++)
+        delete []point_A[i]; 
+        delete []point_A;
+    return 0;
+}

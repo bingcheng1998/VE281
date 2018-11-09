@@ -68,10 +68,7 @@ private:
   int n=0;
   TYPE empty_fib=TYPE();
 
-  void virtual void Consolidate(typename std::list<node>::iterator A[], 
-  typename std::list<node>::iterator it, 
-  typename std::list<node>::iterator y
-  int d);
+  virtual void Consolidate();
   virtual void Fibonacci_Heap_Link(typename std::list<node>::iterator x, typename std::list<node>::iterator y);
 };
 
@@ -251,9 +248,7 @@ TYPE fib_heap<TYPE,COMP>::dequeue_min()
                         it--;
                         y--;
                     }
-                                
-        // fib_heap<TYPE,COMP>::Consolidate(A, it, y, d);     
-//=-------------------------------------------------------------                 
+                    
 //                    std::cout<<"item in A ";
 //                    for(int i=0;i<size;++i)
 //                    {
@@ -364,62 +359,8 @@ Fibonacci_Heap_Link(it, y);
 // }
 
 template<typename TYPE,typename COMP>
-void fib_heap<TYPE,COMP>::Consolidate(typename std::list<node>::iterator A[], 
-  typename std::list<node>::iterator it, 
-  typename std::list<node>::iterator y
-  int d)
-{
-            int size=int((log(n))/(log((1+sqrt(5))/2)))+1;
-            // typename std::list<node>::iterator A[size];
-            for(int i=0;i<size;++i)
-            {
-                A[i]=root.end();
-            }
-//            typename std::list<node>::iterator x;
-            // typename std::list<node>::iterator y;
-            // int d=0;
-            // typename std::list<node>::iterator it;
-            for(it=root.begin();it!=root.end();++it)
-            {
-                
-//                std::cout<<"item in A ";
-//                for(int i=0;i<size;++i)
-//                {
-//                    if(A[i]==root.end()){
-//                        std::cout<<"NULL"<<" ";
-//                    }
-//                    else{
-//                        std::cout<<(*A[i]).val<<" ";
-//                    }
-//                }
-//                std::cout<<std::endl;
-                
-                d=(*it).degree;
-                while(A[d]!=root.end())
-                {
-                    y=A[d];
-                    
-//                    std::cout<<"item in A ";
-//                    for(int i=0;i<size;++i)
-//                    {
-//                        if(A[i]==root.end()){
-//                            std::cout<<"NULL"<<" ";
-//                        }
-//                        else{
-//                            std::cout<<(*A[i]).val<<" ";
-//                        }
-//                    }
-//                    std::cout<<std::endl;
-                    
-                    if(compare((*y).key,(*it).key))
-                    {
-                        root.insert(y,*it);
-                        root.insert(it,*y);
-                        it=root.erase(it);
-                        y=root.erase(y);
-                        it--;
-                        y--;
-                    }
+void fib_heap<TYPE,COMP>::Consolidate(){
+
 }
 
 
@@ -434,6 +375,8 @@ void fib_heap<TYPE,COMP>::Consolidate(typename std::list<node>::iterator A[],
 
 template<typename TYPE,typename COMP>
 void fib_heap<TYPE,COMP>::Fibonacci_Heap_Link(typename std::list<node>::iterator x, typename std::list<node>::iterator y){
+//   remove y from the root list of H;
+//   make y a child of x;
   (*x).child.push_back((*y));
   y=root.erase(y);
   (*x).degree++;
@@ -471,27 +414,5 @@ unsigned fib_heap<TYPE,COMP>::size() const
 };
 
 
+#endif
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#endif //FIB_HEAP_H

@@ -18,7 +18,7 @@ run: all
 	diff 1.out 2.txt
 
 runv: all
-	./main -v -i BINARY < in.txt >1.out
+	./main --verbose -i BINARY < in.txt >1.out
 	./lyh --verbose -i BINARY < in.txt >2.out
 	diff 1.out 2.out
 	./main --verbose -i UNSORTED < in.txt >1.out

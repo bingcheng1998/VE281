@@ -1,11 +1,11 @@
 //
-//  fib_heap.h
+//  unsorted_heap.h
 //  VE281 2018 Autumn
 //  project3
 //  Bingcheng HU
 //
-#ifndef FIB_HEAP_H
-#define FIB_HEAP_H
+#ifndef UNSORTED_HEAP_H
+#define UNSORTED_HEAP_H
 
 #include <algorithm>
 #include "priority_queue.h"
@@ -14,7 +14,7 @@
 //           an underlying unordered array-based container. Every time a min
 //           is required, a linear search is performed.
 template<typename TYPE, typename COMP = std::less<TYPE> >
-class fib_heap: public priority_queue<TYPE, COMP> {
+class unsorted_heap: public priority_queue<TYPE, COMP> {
 public:
   typedef unsigned size_type;
 
@@ -22,7 +22,7 @@ public:
   //          See test_heap.cpp for more details on functor.
   // MODIFIES: this
   // RUNTIME: O(1)
-  fib_heap(COMP comp = COMP());
+  unsorted_heap(COMP comp = COMP());
 
   // EFFECTS: Add a new element to the heap.
   // MODIFIES: this
@@ -59,19 +59,19 @@ private:
 };
 
 template<typename TYPE, typename COMP>
-fib_heap<TYPE, COMP> :: fib_heap(COMP comp) {
+unsorted_heap<TYPE, COMP> :: unsorted_heap(COMP comp) {
     compare = comp;
     // Fill in the remaining lines if you need.
 }
 
 template<typename TYPE, typename COMP>
-void fib_heap<TYPE, COMP> :: enqueue(const TYPE &val) {
+void unsorted_heap<TYPE, COMP> :: enqueue(const TYPE &val) {
     // Fill in the body.
     data.push_back(val);
 }
 
 template<typename TYPE, typename COMP>
-TYPE fib_heap<TYPE, COMP> :: dequeue_min() {
+TYPE unsorted_heap<TYPE, COMP> :: dequeue_min() {
     // Fill in the body.
     if (empty()) return is_empty;
     auto min = std::min_element(data.begin(), data.end(), compare);
@@ -83,7 +83,7 @@ TYPE fib_heap<TYPE, COMP> :: dequeue_min() {
 }
 
 template<typename TYPE, typename COMP>
-const TYPE &fib_heap<TYPE, COMP> :: get_min() const {
+const TYPE &unsorted_heap<TYPE, COMP> :: get_min() const {
     // Fill in the body.
     if (empty()) return is_empty;
     auto min = std::min_element(data.begin(), data.end(), compare);
@@ -91,15 +91,15 @@ const TYPE &fib_heap<TYPE, COMP> :: get_min() const {
 }
 
 template<typename TYPE, typename COMP>
-bool fib_heap<TYPE, COMP> :: empty() const {
+bool unsorted_heap<TYPE, COMP> :: empty() const {
     // Fill in the body.
     return data.empty();
 }
 
 template<typename TYPE, typename COMP>
-unsigned fib_heap<TYPE, COMP> :: size() const { 
+unsigned unsorted_heap<TYPE, COMP> :: size() const { 
     // Fill in the body.
     return data.size();
 }
 
-#endif //fib_HEAP_H
+#endif //UNSORTED_HEAP_H

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- Generator: DataGraph - https://www.visualdatatools.com/DataGraph/index.html  --><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="563" height="402" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g>
+  <!-- Background -->
+  <g id="Background">
+    <defs>
+      <clipPath id="clipPath">
+        <rect x="74.5" y="18.5" width="473" height="339"/>
+      </clipPath>
+    </defs>
+    <!-- Grid -->
+    <g id="Grid" clip-path="url(#clipPath)">
+      <path d="M 74.5 334.84 L 547.5 334.84 M 74.5 305.49 L 547.5 305.49 M 74.5 276.14 L 547.5 276.14 
+               M 74.5 246.79 L 547.5 246.79 M 74.5 217.44 L 547.5 217.44 M 74.5 188.089 L 547.5 188.089 
+               M 74.5 158.739 L 547.5 158.739 M 74.5 129.389 L 547.5 129.389 M 74.5 100.039 L 547.5 100.039 
+               M 74.5 70.689 L 547.5 70.689 M 74.5 41.3388 L 547.5 41.3388 "
+        stroke="black" stroke-dasharray="0.00997506,3.99002" stroke-linecap="round" fill="none" stroke-width="0.5"/>
+    </g>
+  </g>
+  <!-- Commands -->
+  <g id="Commands">
+    <!-- binary heap vs size -->
+    <g id="binary_heap_vs_size">
+      <defs>
+        <clipPath id="clipPath2">
+          <rect x="74.5" y="18.5" width="473" height="339"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath2)">
+        <path d="M 130.93 317.17 L 162.28 313.11 L 193.63 308.334 L 224.98 301.665 L 256.33 286.518 L 287.68 271.806 
+                 L 319.03 248.184 L 350.38 222.295 L 381.73 196.225 L 413.08 169.951 L 444.43 142.07 
+                 L 475.78 115.473 L 507.13 84.8286 "
+          stroke="rgb(152,78,163)" fill="none" stroke-width="0.5"/>
+      </g>
+      <g>
+        <circle cx="130.93" cy="317.17" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="162.28" cy="313.11" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="193.63" cy="308.334" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="224.98" cy="301.665" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="256.33" cy="286.518" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="287.68" cy="271.806" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="319.03" cy="248.184" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="350.38" cy="222.295" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="381.73" cy="196.225" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="413.08" cy="169.951" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="444.43" cy="142.07" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="475.78" cy="115.473" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        <circle cx="507.13" cy="84.8286" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+      </g>
+    </g>
+    <!-- fibonaci heap vs size -->
+    <g id="fibonaci_heap_vs_size">
+      <defs>
+        <clipPath id="clipPath3">
+          <rect x="74.5" y="18.5" width="473" height="339"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath3)">
+        <path d="M 130.93 318.163 L 162.28 314.583 L 193.63 307.265 L 224.98 294.818 L 256.33 279.128 
+                 L 287.68 258.96 L 319.03 241.202 L 350.38 217.584 L 381.73 193.736 L 413.08 168.587 
+                 L 444.43 143.122 L 475.78 117.24 L 507.13 92.133 "
+          stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+      </g>
+      <g>
+        <g transform="translate(126.43,322.663)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(157.78,319.083)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(189.13,311.765)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(220.48,299.318)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(251.83,283.628)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(283.18,263.46)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(314.53,245.702)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(345.88,222.084)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(377.23,198.236)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(408.58,173.087)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(439.93,147.622)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(471.28,121.74)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(502.63,96.633)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+        </g>
+      </g>
+    </g>
+    <!-- Legend -->
+    <g id="Legend">
+      <rect x="97" y="35" width="200" height="46.8" stroke="black" fill="none" stroke-width="0.5"/>
+      <defs>
+        <clipPath id="clipPath4">
+          <rect x="97" y="35" width="200" height="46.8"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath4)">
+        <g>
+          <path d="M 102 43.5 L 116 43.5 "
+            stroke="rgb(152,78,163)" fill="none" stroke-width="0.5"/>
+          <circle cx="109.5" cy="43.5" r="2.5" fill="rgb(152,78,163)" stroke="none"/>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="121" y="48.3037">binary heap vs size</text>
+        </g>
+        <g>
+          <path d="M 102 58.5 L 116 58.5 "
+            stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+          <g>
+            <circle cx="109.5" cy="58.5" r="2.5" fill="white" stroke="none"/>
+            <circle cx="109.5" cy="58.5" r="2.5" stroke="rgb(255,127,0)" fill="none" stroke-width="0.5"/>
+          </g>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="121" y="62.7037">fibonaci heap vs size</text>
+        </g>
+        <g>
+          <path d="M 102 72.5 L 116 72.5 "
+            stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+          <g>
+            <circle cx="109.5" cy="72.5" r="2.5" fill="white" stroke="none"/>
+            <circle cx="109.5" cy="72.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+          </g>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="121" y="77.1037">unsorted heap vs size</text>
+        </g>
+      </g>
+    </g>
+    <!-- unsorted heap vs size -->
+    <g id="unsorted_heap_vs_size">
+      <defs>
+        <clipPath id="clipPath5">
+          <rect x="74.5" y="18.5" width="473" height="339"/>
+        </clipPath>
+      </defs>
+      <g clip-path="url(#clipPath5)">
+        <path d="M 130.93 305.49 L 162.28 302.146 L 193.63 296.655 L 224.98 284.975 L 256.33 268.648 
+                 L 287.68 241.621 L 319.03 215.603 L 350.38 185.778 L 381.73 160.6 L 413.08 137.098 L 444.43 110.677 
+                 L 475.78 81.5677 L 507.13 55.9189 "
+          stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+      </g>
+      <g>
+        <g transform="translate(126.43,309.99)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(157.78,306.646)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(189.13,301.155)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(220.48,289.475)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(251.83,273.148)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(283.18,246.121)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(314.53,220.103)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(345.88,190.277)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(377.23,165.1)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(408.58,141.598)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(439.93,115.177)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(471.28,86.0677)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+        <g transform="translate(502.63,60.4189)">>
+          <circle cx="4.5" cy="-4.5" r="2.5" fill="white" stroke="none"/>
+          <circle cx="4.5" cy="-4.5" r="2.5" stroke="rgb(77,175,74)" fill="none" stroke-width="0.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <!-- Foreground -->
+  <g id="Foreground">
+    <!-- Y Axis -->
+    <g id="Y_Axis">
+      <g transform="translate(14.0188,188) rotate(-90) translate(-14.0188,-188)" font-family="Helvetica" font-size="12" fill="black">
+        <text x="-11.4227" y="188">Time (μs)</text>
+      </g>
+      <!-- Y Labels -->
+      <g id="Y_Labels">
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="339.144">10</text>
+          <text x="59.0946" y="333.81" font-size="9">1</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="309.794">10</text>
+          <text x="59.0946" y="304.46" font-size="9">2</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="280.444">10</text>
+          <text x="59.0946" y="275.109" font-size="9">3</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="251.093">10</text>
+          <text x="59.0946" y="245.759" font-size="9">4</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="221.743">10</text>
+          <text x="59.0946" y="216.409" font-size="9">5</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="192.393">10</text>
+          <text x="59.0946" y="187.059" font-size="9">6</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="163.043">10</text>
+          <text x="59.0946" y="157.709" font-size="9">7</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="133.693">10</text>
+          <text x="59.0946" y="128.359" font-size="9">8</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="45.747" y="104.343">10</text>
+          <text x="59.0946" y="99.0087" font-size="9">9</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="40.7416" y="74.9927">10</text>
+          <text x="54.0893" y="69.6586" font-size="9">10</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="41.4052" y="45.6426">10</text>
+          <text x="54.7528" y="40.3085" font-size="9">11</text>
+        </g>
+      </g>
+      <path d="M 70.5 355.355 L 74.5 355.355 M 70.5 350.187 L 74.5 350.187 M 70.5 346.52 L 74.5 346.52 
+               M 70.5 343.675 L 74.5 343.675 M 70.5 341.351 L 74.5 341.351 M 70.5 339.387 L 74.5 339.387 
+               M 70.5 337.684 L 74.5 337.684 M 70.5 336.183 L 74.5 336.183 M 66.5 334.84 L 74.5 334.84 
+               M 70.5 326.005 L 74.5 326.005 M 70.5 320.837 L 74.5 320.837 M 70.5 317.17 L 74.5 317.17 
+               M 70.5 314.325 L 74.5 314.325 M 70.5 312.001 L 74.5 312.001 M 70.5 310.036 L 74.5 310.036 
+               M 70.5 308.334 L 74.5 308.334 M 70.5 306.833 L 74.5 306.833 M 66.5 305.49 L 74.5 305.49 
+               M 70.5 296.655 L 74.5 296.655 M 70.5 291.486 L 74.5 291.486 M 70.5 287.819 L 74.5 287.819 
+               M 70.5 284.975 L 74.5 284.975 M 70.5 282.651 L 74.5 282.651 M 70.5 280.686 L 74.5 280.686 
+               M 70.5 278.984 L 74.5 278.984 M 70.5 277.483 L 74.5 277.483 M 66.5 276.14 L 74.5 276.14 
+               M 70.5 267.305 L 74.5 267.305 M 70.5 262.136 L 74.5 262.136 M 70.5 258.469 L 74.5 258.469 
+               M 70.5 255.625 L 74.5 255.625 M 70.5 253.301 L 74.5 253.301 M 70.5 251.336 L 74.5 251.336 
+               M 70.5 249.634 L 74.5 249.634 M 70.5 248.133 L 74.5 248.133 M 66.5 246.79 L 74.5 246.79 
+               M 70.5 237.954 L 74.5 237.954 M 70.5 232.786 L 74.5 232.786 M 70.5 229.119 L 74.5 229.119 
+               M 70.5 226.275 L 74.5 226.275 M 70.5 223.951 L 74.5 223.951 M 70.5 221.986 L 74.5 221.986 
+               M 70.5 220.284 L 74.5 220.284 M 70.5 218.783 L 74.5 218.783 M 66.5 217.44 L 74.5 217.44 
+               M 70.5 208.604 L 74.5 208.604 M 70.5 203.436 L 74.5 203.436 M 70.5 199.769 L 74.5 199.769 
+               M 70.5 196.925 L 74.5 196.925 M 70.5 194.601 L 74.5 194.601 M 70.5 192.636 L 74.5 192.636 
+               M 70.5 190.934 L 74.5 190.934 M 70.5 189.432 L 74.5 189.432 M 66.5 188.089 L 74.5 188.089 
+               M 70.5 179.254 L 74.5 179.254 M 70.5 174.086 L 74.5 174.086 M 70.5 170.419 L 74.5 170.419 
+               M 70.5 167.575 L 74.5 167.575 M 70.5 165.251 L 74.5 165.251 M 70.5 163.286 L 74.5 163.286 
+               M 70.5 161.584 L 74.5 161.584 M 70.5 160.082 L 74.5 160.082 M 66.5 158.739 L 74.5 158.739 
+               M 70.5 149.904 L 74.5 149.904 M 70.5 144.736 L 74.5 144.736 M 70.5 141.069 L 74.5 141.069 
+               M 70.5 138.224 L 74.5 138.224 M 70.5 135.901 L 74.5 135.901 M 70.5 133.936 L 74.5 133.936 
+               M 70.5 132.234 L 74.5 132.234 M 70.5 130.732 L 74.5 130.732 M 66.5 129.389 L 74.5 129.389 
+               M 70.5 120.554 L 74.5 120.554 M 70.5 115.386 L 74.5 115.386 M 70.5 111.719 L 74.5 111.719 
+               M 70.5 108.874 L 74.5 108.874 M 70.5 106.55 L 74.5 106.55 M 70.5 104.585 L 74.5 104.585 
+               M 70.5 102.883 L 74.5 102.883 M 70.5 101.382 L 74.5 101.382 M 66.5 100.039 L 74.5 100.039 
+               M 70.5 91.2038 L 74.5 91.2038 M 70.5 86.0355 L 74.5 86.0355 M 70.5 82.3686 L 74.5 82.3686 
+               M 70.5 79.5242 L 74.5 79.5242 M 70.5 77.2003 L 74.5 77.2003 M 70.5 75.2354 L 74.5 75.2354 
+               M 70.5 73.5333 L 74.5 73.5333 M 70.5 72.032 L 74.5 72.032 M 66.5 70.689 L 74.5 70.689 
+               M 70.5 61.8537 L 74.5 61.8537 M 70.5 56.6854 L 74.5 56.6854 M 70.5 53.0184 L 74.5 53.0184 
+               M 70.5 50.1741 L 74.5 50.1741 M 70.5 47.8501 L 74.5 47.8501 M 70.5 45.8852 L 74.5 45.8852 
+               M 70.5 44.1832 L 74.5 44.1832 M 70.5 42.6818 L 74.5 42.6818 M 66.5 41.3388 L 74.5 41.3388 
+               M 70.5 32.5036 L 74.5 32.5036 M 70.5 27.3353 L 74.5 27.3353 M 70.5 23.6683 L 74.5 23.6683 
+               M 70.5 20.824 L 74.5 20.824 M 70.5 18.5 L 74.5 18.5 "
+        stroke="black" fill="none" stroke-width="0.5"/>
+    </g>
+    <!-- X Axis -->
+    <g id="X_Axis">
+      <g font-family="Helvetica" font-size="12" fill="black">
+        <text x="279.658" y="395">Size (width)</text>
+      </g>
+      <g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="96.2431" y="376.69">1</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="194.546" y="376.69">10</text>
+          <text x="207.894" y="371.356" font-size="9">1</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="298.688" y="376.69">10</text>
+          <text x="312.036" y="371.356" font-size="9">2</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="402.831" y="376.69">10</text>
+          <text x="416.179" y="371.356" font-size="9">3</text>
+        </g>
+        <g font-family="Helvetica" font-size="12" fill="black">
+          <text x="506.973" y="376.69">10</text>
+          <text x="520.321" y="371.356" font-size="9">4</text>
+        </g>
+      </g>
+      <path d="M 99.58 365.5 L 99.58 357.5 M 203.723 365.5 L 203.723 357.5 M 307.865 365.5 L 307.865 357.5 
+               M 412.007 365.5 L 412.007 357.5 M 516.15 365.5 L 516.15 357.5 M 76.4761 361.5 L 76.4761 357.5 
+               M 83.4481 361.5 L 83.4481 357.5 M 89.4876 361.5 L 89.4876 357.5 M 94.8147 361.5 L 94.8147 357.5 
+               M 130.93 361.5 L 130.93 357.5 M 149.269 361.5 L 149.269 357.5 M 162.28 361.5 L 162.28 357.5 
+               M 172.372 361.5 L 172.372 357.5 M 180.619 361.5 L 180.619 357.5 M 187.591 361.5 L 187.591 357.5 
+               M 193.63 361.5 L 193.63 357.5 M 198.957 361.5 L 198.957 357.5 M 235.073 361.5 L 235.073 357.5 
+               M 253.411 361.5 L 253.411 357.5 M 266.423 361.5 L 266.423 357.5 M 276.515 361.5 L 276.515 357.5 
+               M 284.761 361.5 L 284.761 357.5 M 291.733 361.5 L 291.733 357.5 M 297.773 361.5 L 297.773 357.5 
+               M 303.1 361.5 L 303.1 357.5 M 339.215 361.5 L 339.215 357.5 M 357.554 361.5 L 357.554 357.5 
+               M 370.565 361.5 L 370.565 357.5 M 380.657 361.5 L 380.657 357.5 M 388.904 361.5 L 388.904 357.5 
+               M 395.876 361.5 L 395.876 357.5 M 401.915 361.5 L 401.915 357.5 M 407.242 361.5 L 407.242 357.5 
+               M 443.358 361.5 L 443.358 357.5 M 461.696 361.5 L 461.696 357.5 M 474.708 361.5 L 474.708 357.5 
+               M 484.8 361.5 L 484.8 357.5 M 493.046 361.5 L 493.046 357.5 M 500.018 361.5 L 500.018 357.5 
+               M 506.058 361.5 L 506.058 357.5 M 511.385 361.5 L 511.385 357.5 M 547.5 361.5 L 547.5 357.5 "
+        stroke="black" fill="none" stroke-width="0.5"/>
+    </g>
+    <g font-family="Helvetica" font-size="12" fill="black">
+      <text x="198.046" y="14.0188">
+        Performances of three different heap ways
+      </text>
+    </g>
+    <path d="M 547.5 357.5 L 547.5 18.5 L 74.5 18.5 L 74.5 357.5 L 547.5 357.5 z "
+      stroke="black" stroke-linecap="square" fill="none" stroke-width="0.5"/>
+  </g>
+</g>
+</svg>

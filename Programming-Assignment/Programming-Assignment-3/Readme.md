@@ -1,11 +1,5 @@
 # Priority Queue and its Application
 
-Bingcheng HU
-
-516021910219
-
-VE281
-
 ##Motivation 
 
 This project will give you experience in implementing priority queues using C++. You will also empirically study the efficiency of different implementations. 
@@ -81,7 +75,7 @@ while(PQ is not empty) {
 ```
 
 <div align=left><img width = '100' src ="https://ws1.sinaimg.cn/large/006tNbRwgy1fwybm2g14cj305o040wea.jpg"/></div>
-<div align=center><img width = '150' height ='150' src ="https://ws2.sinaimg.cn/large/006tNbRwgy1fwybhhk918g307q0787ce.gif"/></div>
+<div align=center><img width = '150' height ='150' src ="https://ws2.sinaimg.cn/large/006tNbRwgy1fwybrc3wuvg307q0784qp.gif"/></div>
 
 ## Command Line Input 
 
@@ -219,6 +213,8 @@ so we can constract this structure as private part.
 You can check `gen_rand.cpp` and `performance.cpp` at appendix.
 
 Part of tha makefile is shown below. you can run `$make gen` then `$make per`  to test it;
+
+
 
 ```ruby
 gen: gen_rand.cpp

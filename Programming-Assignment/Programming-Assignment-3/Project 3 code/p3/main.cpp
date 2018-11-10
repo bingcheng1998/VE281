@@ -6,7 +6,6 @@
 //
 #include <iostream>
 #include <getopt.h>
-#include <tgmath.h>
 #include "priority_queue.h"
 #include "binary_heap.h"
 #include "fib_heap.h"
@@ -47,40 +46,73 @@ public:
 void trace_back_path(point *p){
     if(p!=NULL){
         trace_back_path(p->predecessor);
-        // cout<<*p<<endl;
+        cout<<*p<<endl;
     }
     return;
 }
 
-void clean_matrix(point **point_A,int y_length, int x_length){
-    for(int h=0;h<y_length;++h){
-        for(int w=0;w<x_length;++w){
-            point_A[h][w].x=w;
-            point_A[h][w].y=h;
-            point_A[h][w].cost=point_A[h][w].cellweight;
-            point_A[h][w].reached = false;
+int main(int argc,char* argv[])
+{
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
+//----------------- Get Operation-----------------
+    string mode;
+    while(true)
+    {
+        static struct option long_options[]=
+        {
+            {"verbose", no_argument,       &verbose, 1},
+            {"brief",   no_argument,       &verbose, 0},
+          /* These options don’t set a flag.
+             We distinguish them by their indices. */
+            {"test",              no_argument,       0, 't'},
+            {"implementation",    required_argument,       0, 'i'},
+            {0, 0, 0, 0}
+        };
+        int option_index = 0;
+        int c=getopt_long(argc,argv,"vti:",long_options,&option_index);
+              if (c == -1)
+        break;
+
+      switch (c)
+        {
+        case 0:
+          /* If this option set a flag, do nothing else now. */
+          if (long_options[option_index].flag != 0)
+            break;
+          // printf ("option %s", long_options[option_index].name);
+          if (optarg)
+            // printf (" with arg %s", optarg);
+          // printf ("\n");
+          break;
+
+        case 't':
+          // printf ("option -t\n");
+          break;
+
+        case 'i':
+          // printf ("option -i with value `%s'\n", optarg);
+          mode = optarg;
+          break;
+
+        case '?':
+          /* getopt_long already printed an error message. */
+          break;
+
+        default:
+          abort ();
         }
     }
-}
-
-clock_t test_time(point **point_A, int y_length, int x_length, int mode){
-    int start_y = 0;
-    int start_x = 0;
-    int end_y = y_length-1;
-    int end_x = x_length-1;
-    clock_t start_t, end_t;
-    start_t = clock();
-    // cout<<"start at "<<start_t;
     priority_queue<point,point::compare_t> *priority_q;
-    if(mode== 1) //"BINARY")
+    if(mode=="BINARY")
     {
         priority_q=new binary_heap<point,point::compare_t>();
     }
-    else if(mode== 0) //"UNSORTED")
+    else if(mode=="UNSORTED")
     {
         priority_q=new unsorted_heap<point,point::compare_t>();
     }
-    else if(mode== 2) //"FIBONACCI")
+    else if(mode=="FIBONACCI")
     {
         priority_q=new fib_heap<point,point::compare_t>();
     }
@@ -88,8 +120,25 @@ clock_t test_time(point **point_A, int y_length, int x_length, int mode){
     {
         exit(0);
     }
-    
-    int verbose = 0;
+//-------------------get file input-----------------
+    int x_length,y_length=0;
+    cin>>x_length>>y_length;
+    int start_x,start_y,end_x,end_y;
+    cin>>start_x>>start_y>>end_x>>end_y;
+    point point_A[y_length][x_length];
+    for(int h=0;h<y_length;++h){
+        for(int w=0;w<x_length;++w){
+            cin>>point_A[h][w].cellweight;
+        }
+    }
+    for(int h=0;h<y_length;++h){
+        for(int w=0;w<x_length;++w){
+            point_A[h][w].x=w;
+            point_A[h][w].y=h;
+            point_A[h][w].cost=point_A[h][w].cellweight;
+        }
+    }
+//-------------------calculate path------------------
     point_A[start_y][start_x].reached=true;
     priority_q->enqueue(point_A[start_y][start_x]);
     int step=0;
@@ -117,66 +166,29 @@ clock_t test_time(point **point_A, int y_length, int x_length, int mode){
             point_A[N_y][N_x].cost=point_A[C.y][C.x].cost+point_A[N_y][N_x].cellweight;
             point_A[N_y][N_x].predecessor=&point_A[C.y][C.x];
             if(point_A[end_y][end_x].x==point_A[N_y][N_x].x&&point_A[end_y][end_x].y==point_A[N_y][N_x].y){
-                
+                if(verbose==1){
+                    cout<<"Cell ("<<point_A[N_y][N_x].x<<", "<<point_A[N_y][N_x].y
+                    <<") with accumulated length "<<point_A[N_y][N_x].cost<<" is the ending point."<<endl;
+                }
                 auto end_node = &point_A[end_y][end_x];
-                cerr<<"cost = "<< point_A[N_y][N_x].cost<<" ";
+                cout<<"The shortest path from ("<<point_A[start_y][start_x].x<<", "
+                <<point_A[start_y][start_x].y<<") to ("<<point_A[end_y][end_x].x
+                <<", "<<point_A[end_y][end_x].y<<") is "<<point_A[N_y][N_x].cost<<"."<<endl;
+                cout<<"Path:"<<endl;
                 trace_back_path(&point_A[end_y][end_x]);
                 delete priority_q;
-                end_t = clock();
-                return clock() - start_t;
+                return 0;
             }
             else{
                 priority_q->enqueue(point_A[N_y][N_x]);
+                if(verbose==1){
+                    cout<<"Cell ("<<point_A[N_y][N_x].x<<", "<<point_A[N_y][N_x].y
+                    <<") with accumulated length "<<point_A[N_y][N_x].cost
+                    <<" is added into the queue."<<endl;
+                }
             }
         }
     }
     delete priority_q;
-
-    end_t = clock();
-    return 0;
-}
-const string heapName[] = {
-    "unsorted_heap","binary_heap","fibonaci_heap", "ERROR_HEAP"
-};
-
-int main(int argc,char* argv[])
-{
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(0);
-    int x_length = 0,y_length=0;
-    cin>>x_length>>y_length;
-    int start_x,start_y,end_x,end_y;
-    cin>>start_x>>start_y>>end_x>>end_y;
-    point** point_A;
-    point_A = new point *[x_length];
-    for (int i = 0; i < x_length; ++i)
-    {
-        point_A[i] = new point [y_length];
-    }
-    for(int h=0;h<y_length;++h){
-        for(int w=0;w<x_length;++w){
-            cin>>point_A[h][w].cellweight;
-        }
-    }
-    for (int i = 0; i < 12; ++i)
-    {
-        int size_of_matrix = x_length*pow(2,i+1)/4096;
-        cout <<size_of_matrix<<", ";
-        for (int j = 0; j < 3; ++j)
-        {
-            
-            int x_len = size_of_matrix;
-            int y_len = size_of_matrix;
-            clock_t time_run = test_time(point_A, y_len, x_len, j);
-            clean_matrix(point_A, y_length, x_length);
-            cerr<<"run time of "<<heapName[j]<< "  \tat size "<< size_of_matrix <<"\tis "<<time_run<<endl;
-            cout<<time_run<<",";
-        }
-        cout<<endl;
-    }
-
-    for(int i=0;i<y_length;i++)
-        delete []point_A[i]; 
-        delete []point_A;
     return 0;
 }

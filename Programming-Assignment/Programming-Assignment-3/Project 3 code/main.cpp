@@ -12,7 +12,7 @@
 #include "unsorted_heap.h"
 
 using namespace std;
-static int verbose;
+// static int verbose;
 
 class point {
 public:
@@ -35,14 +35,6 @@ public:
 // cells with the same x-coordinate, choose the cell with the smallest y-coordinate.
     struct compare_t
     {
-        // bool operator()(const point &a, const point &b) const
-        // {
-        //     return (a.cost<b.cost)||((a.cost==b.cost)&&(a.x<b.x))||((a.cost==b.cost)&&(a.x==b.x)&&(a.y<b.y));
-
-        //     // if (a.cost != b.cost) return a.cost < b.cost;
-        //     // if (a.y != b.y) return a.y < b.y;
-        //     // return a.x < b.x;
-        // }
         bool operator()(const point &a, const point &b) const {
             if (a.cost != b.cost) return a.cost < b.cost;
             if (a.x != b.x) return a.x < b.x;
@@ -65,20 +57,22 @@ int main(int argc,char* argv[])
     std::cin.tie(0);
 //----------------- Get Operation-----------------
     string mode;
+    int verbose = 0;
     while(true)
     {
         static struct option long_options[]=
         {
-            {"verbose", no_argument,       &verbose, 1},
-            {"brief",   no_argument,       &verbose, 0},
+            {"verbose", no_argument,       0, 'v'},
+            // {"v", no_argument,       &verbose, 1},
+            // {"brief",   no_argument,       &verbose, 0},
           /* These options don’t set a flag.
              We distinguish them by their indices. */
-            {"test",              no_argument,       0, 't'},
+            // {"test",              no_argument,       0, 't'},
             {"implementation",    required_argument,       0, 'i'},
             {0, 0, 0, 0}
         };
         int option_index = 0;
-        int c=getopt_long(argc,argv,"vti:",long_options,&option_index);
+        int c=getopt_long(argc,argv,"vi:",long_options,&option_index);
               if (c == -1)
         break;
 
@@ -94,8 +88,9 @@ int main(int argc,char* argv[])
           // printf ("\n");
           break;
 
-        case 't':
+        case 'v':
           // printf ("option -t\n");
+          verbose = 1;
           break;
 
         case 'i':

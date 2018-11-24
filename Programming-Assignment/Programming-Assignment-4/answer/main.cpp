@@ -9,8 +9,8 @@
 #include "Market.h"
 
 int main(int argc, char *argv[]) {
-    //std::ifstream fin("test.txt");
-    //std::cin.rdbuf(fin.rdbuf());
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(0);
 
     Market &market = Market::getInstance();
 

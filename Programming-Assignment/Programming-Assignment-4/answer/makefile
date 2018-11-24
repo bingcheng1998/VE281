@@ -18,7 +18,7 @@ run: all
 	diff result.txt out.txt
 
 clean:
-	rm -f *.o main
+	rm -f *.o main result.txt
 
 tar:
 	tar czvf p4.tar Makefile main.cpp Client.cpp Stock.cpp Market.cpp Median.h Client.h Stock.h Market.h

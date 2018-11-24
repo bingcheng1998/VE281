@@ -1,4 +1,4 @@
-all: main.o equity_transfer.o
+all: clean main.o equity_transfer.o
 	g++ -std=c++11 -O2 -g -Wall -o main main.o equity_transfer.o
 
 main.o: main.cpp

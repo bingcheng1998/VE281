@@ -44,7 +44,6 @@ void get_midpoint(map<string, equity_book> &order_list, int timestamp_now) {
 
 void get_transfers(map<string, client_equity *> &client_map) {
     for(auto clientAll_it=client_map.begin(); clientAll_it!=client_map.end(); ++clientAll_it) {
-        if(clientAll_it->second->buy_count == 0 && clientAll_it->second->sell_count==0) continue;
         cout<<clientAll_it->second->name<<" bought "<<clientAll_it->second->buy_count<<" and sold "
             <<clientAll_it->second->sell_count<<" for a net transfer of $"<<clientAll_it->second->net_count<<endl;
     }

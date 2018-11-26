@@ -61,10 +61,6 @@ public:
     int timestamp_sell;
     int price_buy;
     int price_sell;
-    int price_buy_temp;
-    int timestamp_buy_temp;
-    int price_earn_max;
-    bool buy_flag;
 };
 
 struct ttt_equity {

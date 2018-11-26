@@ -71,7 +71,6 @@ int main(int argc, char *argv[]) {
         if (c == -1) break;
         switch (c) {
             case '?':
-                cerr<<"???"<<endl;
                 break;
             default:
                 abort ();
@@ -160,7 +159,6 @@ int main(int argc, char *argv[]) {
 
         for(auto tttEquity_equity_it=ttt_quity_set.begin();
             tttEquity_equity_it!=ttt_quity_set.end(); ++tttEquity_equity_it) {
-
             if((*tttEquity_equity_it)->equity_symbol==EQUITY_SYMBOL) {
                 auto ttt_equity_pt=(*tttEquity_equity_it);
                 if(!buy_signal) {
@@ -174,48 +172,12 @@ int main(int argc, char *argv[]) {
                     if(ttt_equity_pt->timestamp_buy==-1) {
                         break;
                     }
-                    if((ttt_equity_pt->timestamp_sell==-1||ttt_equity_pt->price_sell<LIMIT_PRICE)) {
+                    if(ttt_equity_pt->timestamp_sell==-1||ttt_equity_pt->price_sell<LIMIT_PRICE) {
                         ttt_equity_pt->price_sell=LIMIT_PRICE;
                         ttt_equity_pt->timestamp_sell=TIMESTAMP;
                         ttt_quity_set.insert(ttt_equity_pt);
                     }
                 }
-                // if(buy_signal) {
-                //     //我卖别人买
-                //     if(ttt_equity_pt->timestamp_buy==-1) {
-                //         ttt_equity_pt->buy_flag=false;
-                //         break;
-                //     }
-                //     else if(ttt_equity_pt->timestamp_sell==-1||(ttt_equity_pt->price_sell<LIMIT_PRICE &&ttt_equity_pt->buy_flag==true)) {
-                //         ttt_equity_pt->price_sell=LIMIT_PRICE;
-                //         ttt_equity_pt->timestamp_sell=TIMESTAMP;
-                //         ttt_equity_pt->price_earn_max=ttt_equity_pt->price_sell-ttt_equity_pt->price_buy;
-                //         ttt_quity_set.insert(ttt_equity_pt);
-                        
-                //     }
-                //     if (ttt_equity_pt->buy_flag==true && (ttt_equity_pt->price_sell-ttt_equity_pt->price_buy_temp)>ttt_equity_pt->price_earn_max)
-                //     {
-                //         ttt_equity_pt->timestamp_buy=ttt_equity_pt->timestamp_buy_temp;
-                //         ttt_equity_pt->price_buy=ttt_equity_pt->price_buy_temp;
-                //         ttt_equity_pt->price_earn_max=ttt_equity_pt->price_sell-ttt_equity_pt->price_buy;
-                //         ttt_equity_pt->buy_flag=false;
-                //     }
-                // }
-                // else {
-                //     //别人卖我买
-                //     if(ttt_equity_pt->timestamp_buy==-1) {
-                //         ttt_equity_pt->price_buy=LIMIT_PRICE;
-                //         ttt_equity_pt->timestamp_buy=TIMESTAMP;
-                //         ttt_equity_pt->buy_flag=false;
-                //         ttt_equity_pt->price_earn_max=ttt_equity_pt->price_sell-ttt_equity_pt->price_buy;
-                //         ttt_quity_set.insert(ttt_equity_pt);
-                //     }
-                //     else if(ttt_equity_pt->price_buy>LIMIT_PRICE){
-                //         ttt_equity_pt->buy_flag=true;
-                //         ttt_equity_pt->timestamp_buy_temp=TIMESTAMP;
-                //         ttt_equity_pt->price_buy_temp=LIMIT_PRICE;
-                //     }
-                // }
             }
         }
 
@@ -282,26 +244,8 @@ int main(int argc, char *argv[]) {
     }
     int jik = 0;
     if(ttt) {
-        for(auto tttEquity_record_it=ttt_quity_set.begin();
-            tttEquity_record_it!=ttt_quity_set.end(); tttEquity_record_it++) {
-            cerr<<"ERROR1: "<<jik++ <<endl;
-            if((*tttEquity_record_it)->timestamp_buy<0||(*tttEquity_record_it)->timestamp_sell<0) {
-                cerr<<"FUCK error"<<endl;
-                cout<<"Time travelers would buy "<<(*tttEquity_record_it)->equity_symbol<<" at time: "
-                    <<-1<<" and sell it at time: "
-                    <<-1<<endl;
-                continue;
-            }
-            else {
-                cout<<"Time travelers would buy "<<(*tttEquity_record_it)->equity_symbol<<" at time: "
-                    <<(*tttEquity_record_it)->timestamp_buy<<" and sell it at time: "
-                    <<(*tttEquity_record_it)->timestamp_sell<<endl;
-            }
-            cerr<<"ERROR2: "<<jik++ <<endl;
-        }
-        // auto tttEquity_record_it=ttt_quity_set.begin();
-        // cerr<<"A: ttt_quity_set.size() = "<<ttt_quity_set.size()<<endl; 
-        // while(tttEquity_record_it != ttt_quity_set.end()){
+        // for(auto tttEquity_record_it=ttt_quity_set.begin();
+        //     tttEquity_record_it!=ttt_quity_set.end(); tttEquity_record_it++) {
         //     cerr<<"ERROR1: "<<jik++ <<endl;
         //     if((*tttEquity_record_it)->timestamp_buy<0||(*tttEquity_record_it)->timestamp_sell<0) {
         //         cerr<<"FUCK error"<<endl;
@@ -313,10 +257,25 @@ int main(int argc, char *argv[]) {
         //             <<(*tttEquity_record_it)->timestamp_sell<<endl;
         //     }
         //     cerr<<"ERROR2: "<<jik++ <<endl;
-        //     tttEquity_record_it++;
-
-
         // }
+        auto tttEquity_record_it=ttt_quity_set.begin();
+        cerr<<"A: ttt_quity_set.size() = "<<ttt_quity_set.size()<<endl; 
+        while(tttEquity_record_it != ttt_quity_set.end()){
+            cerr<<"ERROR1: "<<jik++ <<endl;
+            if((*tttEquity_record_it)->timestamp_buy<0||(*tttEquity_record_it)->timestamp_sell<0) {
+                cerr<<"FUCK error"<<endl;
+                continue;
+            }
+            else {
+                cout<<"Time travelers would buy "<<(*tttEquity_record_it)->equity_symbol<<" at time: "
+                    <<(*tttEquity_record_it)->timestamp_buy<<" and sell it at time: "
+                    <<(*tttEquity_record_it)->timestamp_sell<<endl;
+            }
+            cerr<<"ERROR2: "<<jik++ <<endl;
+            tttEquity_record_it++;
+
+
+        }
     }
     return 0;
 }

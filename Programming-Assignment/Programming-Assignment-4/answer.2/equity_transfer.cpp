@@ -30,6 +30,11 @@ void get_median(map<string, equity_book> &order_map, int timestamp_now) {
 
 void get_midpoint(map<string, equity_book> &order_list, int timestamp_now) {
     for(auto orderAll_it=order_list.begin(); orderAll_it!=order_list.end(); ++orderAll_it) {
+        // if (orderAll_it->second.orderBuy.empty()&&orderAll_it->second.orderSell.empty())
+        // {
+        //     continue;
+        // }
+        // else 
         if(orderAll_it->second.orderBuy.empty()||orderAll_it->second.orderSell.empty()) {
             cout<<"Midpoint of "<<orderAll_it->second.EQUITY_SYMBOL<<" at time "<<timestamp_now<<" is undefined"
                 <<endl;

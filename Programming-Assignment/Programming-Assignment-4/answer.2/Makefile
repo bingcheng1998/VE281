@@ -18,8 +18,8 @@ tar:
 	tar czvf p4.tar Makefile main.cpp equity_transfer.cpp equity_transfer.h
 
 s:
-	./a    -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/33.in > ./output/a.txt
-	./main -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/33.in > ./output/b.txt
+	./a    -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/28.in > ./output/a.txt
+	./main -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/28.in > ./output/b.txt
 	diff ./output/a.txt ./output/b.txt
 
 l:
@@ -28,6 +28,6 @@ l:
 	diff ./output/a.txt ./output/b.txt
 
 t:
-	./main  < ./testfile/28.in > ./output/b.txt
-	./a     < ./testfile/28.in > ./output/a.txt
+	./main -p -t < ./testfile/63.in > ./output/b.txt
+	./a    -p -t < ./testfile/63.in > ./output/a.txt
 	diff ./output/a.txt ./output/b.txt

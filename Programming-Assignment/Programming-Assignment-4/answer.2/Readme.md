@@ -1,4 +1,21 @@
-# 使用Bash脚本测试所有代码（在linux下）
+# Project 4
+
+# 电子交易
+
+```mermaid
+graph TD
+    main.cpp --> equity_transfer.h
+    equity_transfer.h-->equity_transfer.cpp
+```
+
+
+
+## Makefile 的使用
+
+1. `make` : 编译
+2. `make clean`: 清除编译数据
+3. `make t`, `make s`, `make l`: 三个测试对比
+4. `make tar`: 打包`SJTU-UM JI`-JOJ所需文件
 
 ## 脚本代码
 

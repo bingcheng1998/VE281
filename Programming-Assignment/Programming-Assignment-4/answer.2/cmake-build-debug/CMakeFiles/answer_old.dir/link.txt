@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/answer_old.dir/equity_transfer.cpp.o CMakeFiles/answer_old.dir/main.cpp.o  -o answer_old 

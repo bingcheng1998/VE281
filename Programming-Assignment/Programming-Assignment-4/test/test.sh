@@ -11,7 +11,4 @@ do
 	echo 🏠 lyh \<\> hbc
 	diff ./output/l.txt ./output/b.txt;
 done 
-# for((i=1;i<=10;i++)) 
-# do   
-# 	echo $(expr $i \* 3 + 1)
-# done  
+ 

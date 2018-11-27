@@ -23,9 +23,9 @@ s:
 	diff ./output/a.txt ./output/b.txt
 
 l:
-	./ll   -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/41.in > ./output/l.txt
-	./a    -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/41.in > ./output/a.txt
-	./main -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/41.in > ./output/b.txt
+	./ll   -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/29.in > ./output/l.txt
+	./a    -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/29.in > ./output/a.txt
+	./main -v -m -p -t -g TG -g GE -g GO -g nn< ./testfile/29.in > ./output/b.txt
 	diff ./output/a.txt ./output/b.txt
 	diff ./output/l.txt ./output/b.txt
 

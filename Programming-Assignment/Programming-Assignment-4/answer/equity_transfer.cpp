@@ -48,6 +48,7 @@ void get_transfers(map<string, client_equity *> &client_map) {
         //cerr<<clientAll_it->second->buy_count <<"##"<< clientAll_it->second->sell_count<<endl;
         cout<<clientAll_it->second->name<<" bought "<<clientAll_it->second->buy_count<<" and sold "
             <<clientAll_it->second->sell_count<<" for a net transfer of $"<<clientAll_it->second->net_count<<endl;
+        // delete clientAll_it->second;
     }
 }
 
@@ -62,6 +63,7 @@ void get_expire(map<string, equity_book> &order_list, set<equity *, equity_buy> 
         for(Sell_set_it=order_sell_set->begin(); Sell_set_it!=order_sell_set->end();) {
             if((*Sell_set_it)->EXPIRE_TIME!=-1&&(*Sell_set_it)->EXPIRE_TIME<=timestamp_now) {
                 Sell_set_it_temp=Sell_set_it;
+                delete* Sell_set_it_temp;
                 Sell_set_it=order_sell_set->erase(Sell_set_it_temp);
             }
             else {
@@ -72,6 +74,7 @@ void get_expire(map<string, equity_book> &order_list, set<equity *, equity_buy> 
         for(buy_set_it=order_buy_set->begin(); buy_set_it!=order_buy_set->end();) { // bug here
             if((*buy_set_it)->EXPIRE_TIME!=-1&&(*buy_set_it)->EXPIRE_TIME<=timestamp_now) {
                 buy_set_it_temp=buy_set_it;
+                delete* buy_set_it_temp;
                 buy_set_it=order_buy_set->erase(buy_set_it_temp);
             }
             else {
@@ -196,6 +199,7 @@ void deal_buy(map<string, equity_book> &order_list, map<string, client_equity *>
                 COMMISION_EARNINGS=(transact_price*QUANTITY)/100;
                 MONEY_TRANSFERRED+=COMMISION_EARNINGS*2;
                 QUANTITY=0;
+                delete* orderSell_ptr->begin();
                 orderSell_ptr->erase(orderSell_ptr->begin());
             }
             else {
@@ -244,6 +248,7 @@ void deal_buy(map<string, equity_book> &order_list, map<string, client_equity *>
                 COMMISION_EARNINGS=transact_price*order_pt->AMOUNT/100;
                 MONEY_TRANSFERRED+=COMMISION_EARNINGS*2;
                 QUANTITY-=order_pt->AMOUNT;
+                delete* orderSell_ptr->begin();
                 orderSell_ptr->erase(orderSell_ptr->begin());
             }
         }
@@ -369,6 +374,7 @@ void deal_sell(map<string, equity_book> &order_map, map<string, client_equity *>
                 MONEY_TRANSFERRED+=COMMISION_EARNINGS*2;
                 NUMBER_OF_SHARES_TRADED+=transact_price*QUANTITY;
                 QUANTITY=0;
+                delete* orderBuy_ptr->begin();
                 orderBuy_ptr->erase(orderBuy_ptr->begin());
             }
             else {
@@ -417,6 +423,7 @@ void deal_sell(map<string, equity_book> &order_map, map<string, client_equity *>
                 COMMISION_EARNINGS=transact_price*order_pt->AMOUNT/100;
                 MONEY_TRANSFERRED+=COMMISION_EARNINGS*2;
                 QUANTITY-=order_pt->AMOUNT;
+                delete* orderBuy_ptr->begin();
                 orderBuy_ptr->erase(orderBuy_ptr->begin());
             }
         }

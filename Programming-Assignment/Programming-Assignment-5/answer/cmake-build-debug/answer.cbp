@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="answer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="answer">
+				<Option output="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/answer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 answer"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="answer/fast">
+				<Option output="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/answer" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 answer/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/graph_test.cpp">
+			<Option target="answer"/>
+		</Unit>
+		<Unit filename="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/graph_test.h">
+			<Option target="answer"/>
+		</Unit>
+		<Unit filename="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/main.cpp">
+			<Option target="answer"/>
+		</Unit>
+		<Unit filename="/Users/bingcheng/Documents/我的坚果云/2018年秋课业/VE281/Programming-Assignment/Programming-Assignment-5/answer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

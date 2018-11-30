@@ -43,26 +43,33 @@ Midpoint of AMZN at time 7 is undefined
 Midpoint of GE at time 7 is undefined
 Midpoint of NFLX at time 7 is undefined
 BluthCorp purchased 25 shares of AMD from PlanetExpress for $80/share
+Median match price of AMD at time 8 is $80
+Median match price of AMZN at time 8 is $50
+Median match price of GE at time 8 is $125
+Midpoint of AMD at time 8 is undefined
+Midpoint of AMZN at time 8 is undefined
+Midpoint of GE at time 8 is undefined
+Midpoint of NFLX at time 8 is undefined
 BluthCorp purchased 50 shares of AMD from PlanetExpress for $80/share
 KrustyKrab purchased 10 shares of AMD from PlanetExpress for $80/share
 BadWolfCorp purchased 20 shares of GE from PlanetExpress for $200/share
-BadWolfCorp purchased 10 shares of AMZN from BluthCorp for $50/share
-BadWolfCorp purchased 12 shares of AMZN from BluthCorp for $50/share
+BadWolfCorp purchased 22 shares of AMZN from BluthCorp for $50/share
 KrustyKrab purchased 12 shares of AMZN from BadWolfCorp for $100/share
 BadWolfCorp purchased 5 shares of AMZN from BadWolfCorp for $50/share
 BluthCorp purchased 5 shares of AMD from PlanetExpress for $80/share
 BluthCorp purchased 20 shares of AMD from PlanetExpress for $120/share
 BadWolfCorp purchased 10 shares of AMD from PlanetExpress for $80/share
 KrustyKrab purchased 10 shares of GE from BadWolfCorp for $50/share
-BadWolfCorp purchased 5 shares of AMZN from BadWolfCorp for $50/share
+BadWolfCorp purchased 3 shares of AMZN from BadWolfCorp for $50/share
+BadWolfCorp purchased 2 shares of AMZN from BadWolfCorp for $50/share
 BluthCorp purchased 25 shares of AMD from PlanetExpress for $80/share
-Median match price of AMD at time 8 is $80
-Median match price of AMZN at time 8 is $50
-Median match price of GE at time 8 is $125
-Midpoint of AMD at time 8 is undefined
-Midpoint of AMZN at time 8 is $75
-Midpoint of GE at time 8 is undefined
-Midpoint of NFLX at time 8 is undefined
+Median match price of AMD at time 9 is $80
+Median match price of AMZN at time 9 is $50
+Median match price of GE at time 9 is $125
+Midpoint of AMD at time 9 is undefined
+Midpoint of AMZN at time 9 is $75
+Midpoint of GE at time 9 is undefined
+Midpoint of NFLX at time 9 is undefined
 ---End of Day---
 Commission Earnings: $528
 Total Amount of Money Transferred: $26600
@@ -73,6 +80,6 @@ BluthCorp bought 125 and sold 44 for a net transfer of $-8600
 KrustyKrab bought 54 and sold 0 for a net transfer of $-3600
 PlanetExpress bought 0 and sold 195 for a net transfer of $21200
 Time travelers would buy TG at time: -1 and sell it at time: -1
-Time travelers would buy GE at time: 4 and sell it at time: 8
+Time travelers would buy GE at time: 4 and sell it at time: 9
 Time travelers would buy GO at time: -1 and sell it at time: -1
 Time travelers would buy nn at time: -1 and sell it at time: -1

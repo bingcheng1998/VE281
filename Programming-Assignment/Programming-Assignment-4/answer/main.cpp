@@ -5,10 +5,39 @@
 
 using namespace std;
 
+void clear_ttt_quity_set(set<ttt_price *, ttt_equity>&ttt_quity_set){
+    set<ttt_price *, ttt_equity>::iterator ite1 = ttt_quity_set.begin();
+    set<ttt_price *, ttt_equity>::iterator ite2 = ttt_quity_set.end();
+    for(;ite1!=ite2;ite1++)
+    {
+        delete *ite1;
+    }
+    ttt_quity_set.clear();
+}
+
+void clear_order_buy_set(set<equity *, equity_buy> *order_buy_set){
+    while(!order_buy_set->empty()){
+        auto it = order_buy_set->begin();
+        delete* it;
+        order_buy_set->erase(it);
+    }
+    order_buy_set->clear();
+}
+
+void clear_client_map(map<string, client_equity *> &client_map){
+    map<string, client_equity *>::iterator ite1 = client_map.begin();
+    map<string, client_equity *>::iterator ite2 = client_map.end();
+    for(;ite1!=ite2;ite1++)
+    {
+        delete (ite1->second);
+        ite1->second = NULL;
+    }
+    client_map.clear();
+}
+
 int main(int argc, char *argv[]) {
     std::ios::sync_with_stdio(false);
     std::cin.tie(0);
-    // First get the opcode
     bool verbose=false;
     bool midpoint=false;
     bool transfers=false;
@@ -239,7 +268,10 @@ int main(int argc, char *argv[]) {
             }
         }
     }
-    return 0;
+    clear_ttt_quity_set(ttt_quity_set);
+    clear_order_buy_set(order_buy_set);
+    clear_client_map(client_map);
+
 }
 
 

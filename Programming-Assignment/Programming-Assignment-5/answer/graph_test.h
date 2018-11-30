@@ -1,5 +1,6 @@
 #ifndef GRAPH_TEST_H
 #define GRAPH_TEST_H
+#define INFINITY INT_MAX
 
 #include <iostream>
 #include <sstream>
@@ -16,39 +17,41 @@ struct Node;
 struct Edge;
 
 struct Node {
-    int code = 0;
-    int D = 0;
+    int degree = 0;
+    int order_num = 0;
+    int smallest_weight = 0;
     list<Edge> adjacent_list;
     list<Edge> undirected_list;
-    int degree = 0;
 };
 
 struct Edge {
-    Node *end_node;
     int weight = 0;
+    Node *end_node;
 };
 
 struct Edge_comp {
     bool operator()(const Node *a, const Node *b) const {
-        return a->code < b->code;
+        return a->order_num < b->order_num;
     }
 };
 
 struct Graph {
-    vector<Node *> node_vec; // compare by in_degree
-    multimap<Node *, Edge, Edge_comp> edge_map; // compare by code
-    multimap<Node *, Edge, Edge_comp> undirected_edge_map; //compare by code
+    vector<Node *> node_vec;
+    multimap<Node *, Edge, Edge_comp> edge_map;
+    multimap<Node *, Edge, Edge_comp> undirected_edge_map;
 };
 
-struct comp_D {
+struct smallest_weight_comp {
     bool operator()(const Node *a, const Node *b) const {
-        return a->D < b->D;
+        return a->smallest_weight < b->smallest_weight;
     }
 };
 
-bool comp_node_degree(const Node *a, const Node *b);
+bool degree_comp(const Node *a, const Node *b);
 
-bool comp_node_code(const Node *a, const Node *b);
+bool order_comp(const Node *a, const Node *b);
+
+void set_graph(Graph &graph, Edge &edge_temp, int node_start_code, int node_end_code);
 
 void tell_DAG(Graph graph);
 

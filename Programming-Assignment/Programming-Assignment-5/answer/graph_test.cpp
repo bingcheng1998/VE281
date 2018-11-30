@@ -4,12 +4,12 @@
 
 using namespace std;
 
-bool comp_node_degree(const Node *a, const Node *b) {
+bool degree_comp(const Node *a, const Node *b) {
     return a->degree < b->degree;
 }
 
-bool comp_node_code(const Node *a, const Node *b) {
-    return a->code < b->code;
+bool order_comp(const Node *a, const Node *b) {
+    return a->order_num < b->order_num;
 }
 
 static void printDAG(bool isDAG) {
@@ -20,9 +20,37 @@ static void printDAG(bool isDAG) {
     }
 }
 
+static void printMST(bool MST_exist, int weight_all){
+    if (!MST_exist) {
+        cout << "The total weight of MST is " << weight_all << endl;
+    } else {
+        cout << "No MST exists!" << endl;
+    }
+}
+
+void set_graph(Graph &graph, Edge &edge_temp, int node_start_code, int node_end_code){
+    Edge edge_undirected_I;
+    Edge edge_undirected_II;
+    edge_undirected_I.weight = edge_undirected_II.weight = edge_temp.weight;
+    graph.node_vec[node_start_code]->order_num = node_start_code;
+    graph.node_vec[node_end_code]->order_num = node_end_code;
+    graph.node_vec[node_end_code]->degree++;
+    graph.node_vec[node_end_code]->smallest_weight = 0;
+    graph.node_vec[node_start_code]->smallest_weight = graph.node_vec[node_end_code]->smallest_weight;
+    edge_temp.end_node = graph.node_vec[node_end_code];
+    edge_undirected_I.end_node = graph.node_vec[node_end_code];
+    edge_undirected_II.end_node = graph.node_vec[node_start_code];
+    graph.node_vec[node_start_code]->adjacent_list.push_back(edge_temp);
+    graph.node_vec[node_start_code]->undirected_list.push_back(edge_undirected_I);
+    graph.node_vec[node_end_code]->undirected_list.push_back(edge_undirected_II);
+    graph.edge_map.insert(make_pair(graph.node_vec[node_start_code], edge_temp));
+    graph.undirected_edge_map.insert(make_pair(graph.node_vec[node_start_code], edge_undirected_I));
+    graph.undirected_edge_map.insert(make_pair(graph.node_vec[node_end_code], edge_undirected_II));
+}
+
 void tell_DAG(Graph graph) {
-    std::sort(graph.node_vec.begin(), graph.node_vec.end(), comp_node_degree);
-    vector<Node *> S; // construct a vector to store nodes whose in_degree is zero
+    std::sort(graph.node_vec.begin(), graph.node_vec.end(), degree_comp);
+    vector<Node *> S;
     for (auto &it : graph.node_vec) {
         if (it->degree == 0) {
             S.push_back(it);
@@ -30,15 +58,15 @@ void tell_DAG(Graph graph) {
             break;
         }
     }
-    std::sort(graph.node_vec.begin(), graph.node_vec.end(), comp_node_code);
+    std::sort(graph.node_vec.begin(), graph.node_vec.end(), order_comp);
     while (!S.empty()) {
         auto n = *S.begin();
         S.erase(S.begin());
         for (auto it = n->adjacent_list.begin(); it != n->adjacent_list.end(); ++it) {
             auto m = it->end_node;
             for (auto tt = graph.edge_map.begin(); tt != graph.edge_map.end(); ++tt) {
-                if (tt->first == n && tt->second.end_node == m) { // Edge from n to m
-                    graph.edge_map.erase(tt); // erase this Edge
+                if (tt->first == n && tt->second.end_node == m) {
+                    graph.edge_map.erase(tt);
                     break;
                 }
             }
@@ -52,49 +80,50 @@ void tell_DAG(Graph graph) {
 }
 
 void calculate_MST(Graph graph) {
-    multiset<Node *, comp_D> T; // construct a set T to store the used Node
-    multiset<Node *, comp_D> T_; // construct a set T_ to store the unused Node
+    multiset<Node *, smallest_weight_comp> connected_nodes;
+    multiset<Node *, smallest_weight_comp> disperse_nodes;
     std::sort(graph.node_vec.begin(),
               graph.node_vec.end(),
-              comp_node_code); // make NodeAll.vec ordered by node_code
+              order_comp);
     auto size = graph.node_vec.size();
     for (int i = 0; i < size; ++i) {
-        graph.node_vec[i]->D = INT_MAX;
+        graph.node_vec[i]->smallest_weight = INFINITY;
     }
-    graph.node_vec[0]->D = 0;
-    T.clear();
+    graph.node_vec[0]->smallest_weight = 0;
+    connected_nodes.clear();
     for (int i = 0; i < size; ++i) {
-        T_.insert(graph.node_vec[i]);
+        disperse_nodes.insert(graph.node_vec[i]);
     }
-    int len = 0;
-    int flag = 0;
-    while (!T_.empty()) {
-        auto v = *T_.begin();
-        if (v->D == INT_MAX) {
-            flag = 1;
+    int weight_all = 0;
+    bool MST_exist = false;
+    while (!disperse_nodes.empty()) {
+        auto v = *disperse_nodes.begin();
+        if (v->smallest_weight == INFINITY) {
+            MST_exist = true;
             break;
         }
-        len += v->D;
-        T.insert(v);
-        T_.erase(T_.begin());
-        for (auto v_neighbor_it = v->undirected_list.begin(); v_neighbor_it != v->undirected_list.end();
-             ++v_neighbor_it) {
-            auto u = v_neighbor_it->end_node; // u is v's neighbor
-            for (auto it_T_ = T_.begin(); it_T_ != T_.end(); ++it_T_) {
-                if ((*it_T_) == u) {
-                    auto it_u = it_T_;
-                    int W_u_v = 0;
+        weight_all += v->smallest_weight;
+        connected_nodes.insert(v);
+        disperse_nodes.erase(disperse_nodes.begin());
+        for (auto undirected_list_it = v->undirected_list.begin(); undirected_list_it != v->undirected_list.end();
+             ++undirected_list_it) {
+            auto u = undirected_list_it->end_node;
+            for (auto disperse_nodes_it = disperse_nodes.begin(); disperse_nodes_it != disperse_nodes.end();
+                ++disperse_nodes_it) {
+                if ((*disperse_nodes_it) == u) {
+                    auto it_u = disperse_nodes_it;
+                    int current_weight = 0;
                     for (auto it = graph.undirected_edge_map.begin(); it != graph.undirected_edge_map.end();) {
                         if (it->second.end_node == u && it->first == v) { // Edge from v to u
-                            W_u_v = it->second.weight;
+                            current_weight = it->second.weight;
                             it = graph.undirected_edge_map.erase(it);
                             break;
                         } else {
                             it++;
                         }
                     }
-                    if (u->D > W_u_v) { // update u's D
-                        u->D = W_u_v;
+                    if (u->smallest_weight > current_weight) {
+                        u->smallest_weight = current_weight;
                     }
                     for (auto it = graph.undirected_edge_map.begin(); it != graph.undirected_edge_map.end();) {
                         if (it->first == u && it->second.end_node == v) { // Edge from u to v
@@ -112,16 +141,12 @@ void calculate_MST(Graph graph) {
                             it++;
                         }
                     }
-                    T_.erase(it_u); // erase and insert Node u to get the correct order in next loop
-                    T_.insert(u);
+                    disperse_nodes.erase(it_u); // erase and insert Node u to get the correct order in next loop
+                    disperse_nodes.insert(u);
                     break;
                 }
             }
         }
     }
-    if (!flag) {
-        cout << "The total weight of MST is " << len << endl;
-    } else {
-        cout << "No MST exists!" << endl;
-    }
+    printMST(MST_exist, weight_all);
 }

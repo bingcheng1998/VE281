@@ -13,22 +13,22 @@
 
 using namespace std;
 struct Node;
-struct Edges;
+struct Edge;
 
 struct Node {
   int code = 0;
   int D = 0;
-  list<Edges> adjacent_list;
-  list<Edges> undirected_list;
+  list<Edge> adjacent_list;
+  list<Edge> undirected_list;
   int degree = 0;
 };
 
-struct Edges {
+struct Edge {
   Node *end_node;
   int weight = 0;
 };
 
-struct comp_Edge {
+struct Edge_comp {
   bool operator()(const Node *a, const Node *b) const {
     return a->code < b->code;
   }
@@ -36,8 +36,8 @@ struct comp_Edge {
 
 struct Graph {
   vector<Node *> NodeAll_vec; // compare by in_degree
-  multimap<Node *, Edges, comp_Edge> EdgeAll_map; // compare by code
-  multimap<Node *, Edges, comp_Edge> Undirected_EdgeAll_map; //compare by code
+  multimap<Node *, Edge, Edge_comp> EdgeAll_map; // compare by code
+  multimap<Node *, Edge, Edge_comp> Undirected_EdgeAll_map; //compare by code
 };
 
 struct comp_D {
@@ -46,14 +46,13 @@ struct comp_D {
   }
 };
 
-
 bool comp_node_degree(const Node *a, const Node *b);
 bool comp_node_code(const Node *a, const Node *b);
 
-void DAG(Graph graph);
+void tell_DAG(Graph graph);
 
 // void Shortest_Path(Graph graph, int source_node_code, int destination_node_code);
 
-void MST(Graph graph);
+void calculate_MST(Graph graph);
 
 #endif

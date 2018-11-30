@@ -21,9 +21,9 @@ int main() {
     stream_read.clear();
     stream_read.str(str);
     int node_start_code, node_end_code;
-    Edges edge_temp;
-    Edges undirected_edge_temp_1;
-    Edges undirected_edge_temp_2;
+    Edge edge_temp;
+    Edge undirected_edge_temp_1;
+    Edge undirected_edge_temp_2;
     stream_read >> node_start_code >> node_end_code >> edge_temp.weight;
     undirected_edge_temp_1.weight = undirected_edge_temp_2.weight = edge_temp.weight;
     graph.NodeAll_vec[node_start_code]->code = node_start_code;
@@ -40,8 +40,8 @@ int main() {
     graph.Undirected_EdgeAll_map.insert(make_pair(graph.NodeAll_vec[node_start_code], undirected_edge_temp_1));
     graph.Undirected_EdgeAll_map.insert(make_pair(graph.NodeAll_vec[node_end_code], undirected_edge_temp_2));
   }
-  DAG(graph);
-  MST(graph);
+    tell_DAG(graph);
+    calculate_MST(graph);
   return 0;
 }
 

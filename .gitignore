@@ -8,3 +8,4 @@ Programming-Assignment/Programming-Assignment-1/.DS_Store
 *.csv
 !Programming-Assignment/Programming-Assignment-2/answer/data_large.csv
 !Programming-Assignment/Programming-Assignment-2/answer/data_small.csv
+*.xml

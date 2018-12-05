@@ -20,18 +20,18 @@ struct Node {
     int degree = 0;
     int order_num = 0;
     int smallest_weight = 0;
-    list<Edge> adjacent_list;
-    list<Edge> undirected_list;
+    list<Edge> adjacent;
+    list<Edge> undirected;
 };
 
 struct Edge {
     int weight = 0;
-    Node *end_node;
+    Node *distinction;
 };
 
 struct Edge_comp {
     bool operator()(const Node *a, const Node *b) const {
-        return a->order_num < b->order_num;
+        return b->order_num > a->order_num;
     }
 };
 
@@ -43,7 +43,7 @@ struct Graph {
 
 struct smallest_weight_comp {
     bool operator()(const Node *a, const Node *b) const {
-        return a->smallest_weight < b->smallest_weight;
+        return b->smallest_weight > a->smallest_weight;
     }
 };
 

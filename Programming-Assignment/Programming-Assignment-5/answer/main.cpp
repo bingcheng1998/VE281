@@ -22,6 +22,11 @@ int main() {
     }
     tell_DAG(graph);
     calculate_MST(graph);
+    // to avoid memory leak, we need to delete nodes.
+    for (int i = 0; i < node_num; i++) {
+        delete graph.node_vec.back();
+        graph.node_vec.pop_back();
+    }
     return 0;
 }
 

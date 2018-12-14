@@ -12,6 +12,30 @@ According to the student handbook (2015 version),
 
 ------
 
+## Slides
+
+![image-20181214164324920](../../../../Library/Application Support/typora-user-images/image-20181214164324920.png)
+
+---
+
+## Books
+
+![image-20181214164145674](https://ws3.sinaimg.cn/large/006tNbRwly1fy6d6ylsj6j31420cy0ym.jpg)
+
+---
+
+## Handwritten notes
+
+![image-20181214164224787](https://ws3.sinaimg.cn/large/006tNbRwly1fy6d7mzfahj314a0k2qdc.jpg)
+
+---
+
+## RC Slides
+
+![image-20181214164425044](https://ws2.sinaimg.cn/large/006tNbRwly1fy6d9q5mcjj31d205amyh.jpg)
+
+---
+
 Course Syllabus
 
 # VE281 Data Structures and Algorithms Fall 2018 

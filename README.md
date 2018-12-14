@@ -14,7 +14,7 @@ According to the student handbook (2015 version),
 
 ## Slides
 
-![image-20181214164324920](../../../../Library/Application Support/typora-user-images/image-20181214164324920.png)
+![image-20181214164324920](https://ws2.sinaimg.cn/large/006tNbRwly1fy6daqt84cj31lq0p4qcn.jpg)
 
 ---
 
